@@ -1,24 +1,231 @@
 [
     {
-        "id": 40,
+        "id": 400,
+        "country": "Cook Islands",
+        "continent": "Oceania",
+        "title": "The First Landing of Polynesians",
+        "year": 800,
+        "type": "science",
+        "description": "Masters of celestial navigation, Polynesian voyagers used stars, ocean currents, and bird flight patterns to settle the vast Pacific islands, one of history's greatest maritime feats.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            -21.2367,
+            -159.7777
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Polynesian_navigation",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Polynesian Navigation (800).png",
+                "caption": "Traditional Polynesian voyaging canoe",
+                "year": 800,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 401,
         "country": "Australia",
         "continent": "Oceania",
-        "title": "Eureka Stockade",
+        "title": "The Arrival of the First Fleet",
+        "year": 1788,
+        "type": "culture",
+        "description": "The arrival of 11 British ships carrying convicts and soldiers marked the beginning of European settlement and the catastrophic displacement of the Eora people.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            -33.8688,
+            151.2093
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/First_Fleet",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/First Fleet Arrival (1788).png",
+                "caption": "The First Fleet in Sydney Cove",
+                "year": 1788,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 402,
+        "country": "New Zealand",
+        "continent": "Oceania",
+        "title": "The Signing of the Treaty of Waitangi",
+        "year": 1840,
+        "type": "culture",
+        "description": "A foundational document for New Zealand, signed by British representatives and M\u0101ori chiefs to establish a British Governor while recognizing M\u0101ori ownership of lands.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            -35.2623,
+            174.0754
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Treaty_of_Waitangi",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Treaty of Waitangi (1840).png",
+                "caption": "Signing of the Treaty of Waitangi",
+                "year": 1840,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 403,
+        "country": "Australia",
+        "continent": "Oceania",
+        "title": "The Eureka Rebellion",
         "year": 1854,
         "type": "revolution",
-        "description": "A rebellion of gold miners against colonial authority, widely regarded as a key event in the development of Australian democracy.",
-        "casualties": "35+",
-        "intensity_score": 0.65,
+        "description": "Gold miners revolted against colonial authority over license fees and lack of representation, an event often cited as the birth of Australian democracy.",
+        "intensity_score": 0.8,
         "coordinates": [
             -37.5622,
             143.8503
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Eureka_Rebellion",
         "images": [
             {
-                "url": "assets/images/eureka_stockade_1.jpg",
-                "caption": "The Eureka Flag",
+                "url": "assets/images/events/oceania/Eureka Rebellion (1854).png",
+                "caption": "The Eureka Flag and Stockade",
                 "year": 1854,
-                "credit": "Ballarat Fine Art Gallery"
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 404,
+        "country": "Solomon Islands",
+        "continent": "Oceania",
+        "title": "The Battle of the Coral Sea",
+        "year": 1942,
+        "type": "war",
+        "description": "The first naval battle in history where the opposing fleets never saw or fired directly at each other, relying entirely on aircraft carriers to stop the Japanese advance.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            -10.0,
+            158.0
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_the_Coral_Sea",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Battle of the Coral Sea (1942).png",
+                "caption": "Explosion on USS Lexington",
+                "year": 1942,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 405,
+        "country": "Papua New Guinea",
+        "continent": "Oceania",
+        "title": "The Kokoda Track Campaign",
+        "year": 1942,
+        "type": "war",
+        "description": "Australian and Papuan forces engaged in a series of brutal jungle battles to prevent Japanese forces from capturing Port Moresby.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            -9.0,
+            147.7333
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Kokoda_Track_campaign",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Kokoda Track Campaign (1942).png",
+                "caption": "Australian soldiers on the Kokoda Track",
+                "year": 1942,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 406,
+        "country": "Australia",
+        "continent": "Oceania",
+        "title": "The Mabo Decision",
+        "year": 1992,
+        "type": "revolution",
+        "description": "A landmark High Court ruling that overturned the legal doctrine of \"terra nullius\" (nobody's land), recognizing that Indigenous people have a prior claim to land ownership.",
+        "intensity_score": 0.75,
+        "coordinates": [
+            -35.2809,
+            149.13
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Mabo_v_Queensland_(No_2)",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Mabo Decision (1992).png",
+                "caption": "Eddie Mabo",
+                "year": 1992,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 407,
+        "country": "Marshall Islands",
+        "continent": "Oceania",
+        "title": "The Castle Bravo Nuclear Test",
+        "year": 1954,
+        "type": "science",
+        "description": "The most powerful nuclear device ever detonated by the United States, causing widespread radioactive contamination and sparking global anti-nuclear protests.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            11.6667,
+            165.45
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Castle_Bravo",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Castle Bravo Test (1954).png",
+                "caption": "Castle Bravo explosion mushroom cloud",
+                "year": 1954,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 408,
+        "country": "United States",
+        "continent": "Oceania",
+        "title": "The Hikianalia and H\u014dk\u016ble\u02bba Voyage",
+        "year": 1976,
+        "type": "culture",
+        "description": "The voyage of a traditional double-hulled canoe from Hawaii to Tahiti proved that ancient Polynesians could navigate intentionally, sparking a Pacific cultural renaissance.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            21.3069,
+            -157.8583
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/H%C5%8Dk%C5%ABle%CA%BBa",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Hokulea Voyage (1976).png",
+                "caption": "Traditional Polynesian canoe Hokule'a",
+                "year": 1976,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 409,
+        "country": "Fiji",
+        "continent": "Oceania",
+        "title": "Fiji's Independence from Britain",
+        "year": 1970,
+        "type": "revolution",
+        "description": "After 96 years of colonial rule, Fiji regained its independence, transitioning to a sovereign nation within the Commonwealth.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            -18.1416,
+            178.4419
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Fiji_Week",
+        "images": [
+            {
+                "url": "assets/images/events/oceania/Fiji Independence (1970).png",
+                "caption": "Fijian flag raising at independence",
+                "year": 1970,
+                "credit": "Public Domain"
             }
         ]
     }

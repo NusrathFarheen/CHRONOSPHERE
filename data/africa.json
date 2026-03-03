@@ -1,53 +1,277 @@
 [
     {
         "id": 20,
-        "country": "Ethiopia",
+        "country": "Egypt",
         "continent": "Africa",
-        "title": "Battle of Adwa",
-        "year": 1896,
-        "type": "war",
-        "description": "Ethiopian forces defeated the Italian colonial army, securing Ethiopia's sovereignty and making it a symbol of African resistance.",
-        "casualties": "15,000+",
-        "intensity_score": 0.85,
+        "title": "The Construction of the Great Pyramid of Giza",
+        "year": -2580,
+        "type": "science",
+        "description": "The oldest and largest of the three pyramids in the Giza pyramid complex, it remained the tallest man-made structure in the world for over 3,800 years.",
+        "intensity_score": 0.5,
         "coordinates": [
-            14.1645,
-            38.8953
+            29.9792,
+            31.1342
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza",
         "images": [
             {
-                "url": "assets/images/adwa_1.jpg",
-                "caption": "Emperor Menelik II at Adwa",
-                "year": 1896,
-                "credit": "National Museum of Ethiopia"
-            },
-            {
-                "url": "assets/images/adwa_2.jpg",
-                "caption": "Victory Proclamation",
-                "year": 1896,
+                "url": "assets/images/events/africa/Great Pyramid of Giza (-2580).jpg",
+                "caption": "The Great Pyramid of Giza",
+                "year": 2011,
                 "credit": "Public Domain"
             }
         ]
     },
     {
         "id": 21,
-        "country": "South Africa",
+        "country": "Egypt",
         "continent": "Africa",
-        "title": "Anglo-Zulu War",
-        "year": 1879,
-        "type": "war",
-        "description": "Conflict between the British Empire and the Zulu Kingdom, famous for the Battle of Isandlwana and Rorke's Drift.",
-        "casualties": "10,000+",
-        "intensity_score": 0.8,
+        "title": "The Library of Alexandria",
+        "year": -285,
+        "type": "culture",
+        "description": "One of the largest and most significant libraries of the ancient world, it was dedicated to the Muses and served as a major center of scholarship.",
+        "intensity_score": 0.4,
         "coordinates": [
-            -28.3582,
-            30.6385
+            31.2,
+            29.9167
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Library_of_Alexandria",
         "images": [
             {
-                "url": "assets/images/zulu_war_1.jpg",
-                "caption": "Battle of Isandlwana",
+                "url": "assets/images/events/africa/Library of Alexandria (-285).jpg",
+                "caption": "Depiction of the Library of Alexandria",
+                "year": 2011,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "country": "Mali",
+        "continent": "Africa",
+        "title": "The Golden Age of the Mali Empire",
+        "year": 1324,
+        "type": "culture",
+        "description": "Mansa Musa's pilgrimage to Mecca made the Mali Empire famous, with Timbuktu becoming a world-renowned center of learning and trade.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            16.7666,
+            -3.0026
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Mali_Empire",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Mali Empire (1324).jpg",
+                "caption": "The Great Mosque of Djenn\u00e9",
+                "year": 1906,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "country": "Ethiopia",
+        "continent": "Africa",
+        "title": "The Battle of Adwa",
+        "year": 1896,
+        "type": "war",
+        "description": "Ethiopian forces defeated the Italian invaders, ensuring Ethiopia's independence and becoming a symbol of African resistance against colonialism.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            14.1667,
+            38.8833
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Adwa",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Battle of Adwa (1896).jpg",
+                "caption": "Fresco of the Battle of Adwa",
+                "year": 1900,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "The End of Apartheid",
+        "year": 1994,
+        "type": "revolution",
+        "description": "The first multiracial elections marked the end of institutionalized racial segregation and the beginning of a new era under Nelson Mandela.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            -25.7479,
+            28.2293
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Apartheid",
+        "images": [
+            {
+                "url": "assets/images/events/africa/End of Apartheid (1994).jpg",
+                "caption": "Nelson Mandela casting his vote",
+                "year": 1994,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "The Anglo-Zulu War",
+        "year": 1879,
+        "type": "war",
+        "description": "A conflict between the British Empire and the Zulu Kingdom, famous for the Battle of Isandlwana and the defense of Rorke's Drift.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            -28.356,
+            30.654
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Anglo-Zulu_War",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Anglo-Zulu War (1879).png",
+                "caption": "The Battle of Isandlwana",
                 "year": 1879,
-                "credit": "Historical Archives"
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "The Sharpeville Massacre",
+        "year": 1960,
+        "type": "war",
+        "description": "Police opened fire on a crowd of black protesters at a police station in Sharpeville, killing 69 people and sparking global condemnation of apartheid.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            -26.6892,
+            27.8653
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Sharpeville_massacre",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Sharpeville Massacre (1960).avif",
+                "caption": "Aftermath of the Sharpeville Massacre",
+                "year": 1960,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "The Soweto Uprising",
+        "year": 1976,
+        "type": "revolution",
+        "description": "A series of demonstrations and protests led by black school children in South Africa against the implementation of Afrikaans as the medium of instruction.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            -26.2309,
+            27.8587
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Soweto_uprising",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Soweto Uprising (1976).jpg",
+                "caption": "Students during the Soweto Uprising",
+                "year": 1976,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "First Successful Human-to-Human Heart Transplant",
+        "year": 1967,
+        "type": "science",
+        "description": "Dr. Christiaan Barnard performed the world's first successful human heart transplant at Groote Schuur Hospital, a landmark achievement in medical history.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            -33.9249,
+            18.4241
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Christiaan_Barnard",
+        "images": [
+            {
+                "url": "assets/images/events/africa/First Heart Transplant (1967).jpg",
+                "caption": "Dr. Christiaan Barnard",
+                "year": 1967,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 29,
+        "country": "Sudan",
+        "continent": "Africa",
+        "title": "The Foundation of the Kingdom of Kush",
+        "year": -2500,
+        "type": "culture",
+        "description": "One of the earliest urban civilizations in tropical Africa, the Kingdom of Kush rose to power along the Nile and eventually ruled over Egypt as the 25th Dynasty.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            19.6,
+            30.4167
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Kingdom_of_Kush",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Kingdom of Kush (-2500).avif",
+                "caption": "Pyramids of Mero\u00eb, part of the Kingdom of Kush",
+                "year": 2001,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "country": "Rwanda",
+        "continent": "Africa",
+        "title": "The Rwandan Genocide",
+        "year": 1994,
+        "type": "war",
+        "description": "A mass slaughter of Tutsi, Twa, and moderate Hutu by members of the Hutu majority government, resulting in approximately 800,000 deaths in 100 days.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            -1.9441,
+            30.0619
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Rwandan_genocide",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Rwandan Genocide (1994).avif",
+                "caption": "Kigali Genocide Memorial",
+                "year": 1994,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "country": "Sudan",
+        "continent": "Africa",
+        "title": "The Sudanese Civil War",
+        "year": 2023,
+        "type": "war",
+        "description": "An ongoing armed conflict between the Sudanese Armed Forces (SAF) and the Rapid Support Forces (RSF), resulting in a severe humanitarian crisis in Northeast Africa.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            15.5007,
+            32.5599
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Sudanese_civil_war_(2023%E2%80%93present)",
+        "images": [
+            {
+                "url": "assets/images/events/africa/Sudanese Civil War (2023).png",
+                "caption": "Conflict in Khartoum",
+                "year": 2023,
+                "credit": "Public Domain"
             }
         ]
     }

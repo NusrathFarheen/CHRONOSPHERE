@@ -151,14 +151,30 @@ class ChronoSphere {
         // Simulator Handlers
         const closeSim = document.getElementById('close-simulator');
         const simOverlay = document.getElementById('simulator-overlay');
+        const navSim = document.getElementById('nav-simulator');
+
         if (closeSim) {
             closeSim.addEventListener('click', () => simOverlay.classList.add('hidden'));
+        }
+
+        if (navSim) {
+            navSim.addEventListener('click', () => simOverlay.classList.remove('hidden'));
         }
 
         // AI Processor for Simulation
         const runSim = document.getElementById('run-simulation');
         if (runSim) {
             runSim.addEventListener('click', () => this.runAISimulation());
+        }
+
+        // Learn More Handler
+        const learnMoreBtn = document.getElementById('card-learn-more');
+        if (learnMoreBtn) {
+            learnMoreBtn.addEventListener('click', () => {
+                if (this.activeEvent && this.activeEvent.wikipedia_url) {
+                    window.open(this.activeEvent.wikipedia_url, '_blank');
+                }
+            });
         }
 
         // UI Toggle
@@ -213,7 +229,7 @@ class ChronoSphere {
         this.markers.forEach(m => this.map.removeLayer(m));
         this.markers = [];
 
-        // 2. Filter data by year and category
+        // 2. Filter data by year and category (Show only events from last 100 years to reduce clutter)
         const filteredData = this.historyData.filter(event =>
             event.year <= this.currentYear &&
             this.activeFilters.includes(event.type)
@@ -263,6 +279,7 @@ class ChronoSphere {
         setTimeout(() => document.body.classList.add('dim-active'), 50);
 
         // 3. Populate Floating Card
+        this.activeEvent = event; // Track active event for "Learn More"
         const card = document.getElementById('floating-card');
         const badge = document.getElementById('card-badge');
         const title = document.getElementById('card-title');
@@ -284,11 +301,12 @@ class ChronoSphere {
                 imgWrap.className = 'image-wrapper';
                 imgWrap.innerHTML = `
                     <img src="${img.url}" alt="${img.caption}" 
-                         onerror="this.src='https://images.unsplash.com/photo-1461360228754-6e81c478b882?auto=format&fit=crop&w=400&q=80'">
-                    <div class="image-overlay" onclick="window.chronosphere.openGallery('${img.url}', '${img.caption}', '${event.description}')">
-                        <span>View</span>
+                         onerror="this.src='https://images.unsplash.com/photo-1585644131575-f09691888195?auto=format&fit=crop&w=400&q=80'">
+                    <div class="image-overlay">
+                        <span>Historical View</span>
                     </div>
                 `;
+                imgWrap.onclick = () => this.openGallery(img);
                 gallery.appendChild(imgWrap);
             });
         }
@@ -334,10 +352,6 @@ class ChronoSphere {
         }
     }
 
-
-
-
-
     openGallery(img) {
         const modal = document.getElementById('gallery-modal');
         const modalImg = document.getElementById('modal-image');
@@ -347,7 +361,7 @@ class ChronoSphere {
         if (modal && modalImg) {
             modalImg.src = img.url;
             if (modalTitle) modalTitle.textContent = img.caption;
-            if (modalDesc) modalDesc.textContent = `Documented in ${img.year}. Credit: ${img.credit}`;
+            if (modalDesc) modalDesc.textContent = `Documented in ${img.year || 'unknown'}. Credit: ${img.credit || 'Public Domain'}`;
 
             modal.style.display = 'flex';
             gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.5 });
@@ -391,5 +405,11 @@ class ChronoSphere {
 // Start Application
 window.addEventListener('DOMContentLoaded', () => {
     window.chronosphere = new ChronoSphere();
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .catch(err => console.log('SW registration failed:', err));
+    }
 });
 

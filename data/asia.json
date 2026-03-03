@@ -1,52 +1,1150 @@
 [
     {
-        "id": 10,
-        "country": "Japan",
+        "id": 200,
+        "country": "Pakistan",
         "continent": "Asia",
-        "title": "Meiji Restoration",
-        "year": 1868,
-        "type": "revolution",
-        "description": "A political revolution that restored practical imperial rule to Japan, leading to enormous changes in its political and social structure.",
-        "casualties": null,
-        "intensity_score": 0.7,
+        "title": "The Rise of the Indus Valley Civilization",
+        "year": -3300,
+        "type": "culture",
+        "description": "One of the world's three earliest civilizations, known for its advanced urban planning, baked brick houses, and sophisticated drainage systems.",
+        "intensity_score": 0.4,
         "coordinates": [
-            35.6895,
-            139.6917
+            30.5973,
+            72.8732
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Indus_Valley_Civilization",
         "images": [
             {
-                "url": "assets/images/meiji_restoration_1.jpg",
-                "caption": "Imperial Court in Edo",
-                "year": 1868,
-                "credit": "Imperial Archives"
+                "url": "assets/images/events/asia/Indus Valley Civilization (-3300).png",
+                "caption": "Ruins of Harappa",
+                "year": -3300,
+                "credit": "Public Domain"
             }
         ]
     },
     {
-        "id": 11,
+        "id": 201,
+        "country": "Nepal",
+        "continent": "Asia",
+        "title": "The Life of Siddhartha Gautama (The Buddha)",
+        "year": -563,
+        "type": "culture",
+        "description": "The birth and teachings of the Buddha, which founded one of the world's major religions and profoundly influenced Asian philosophy and art.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            27.4851,
+            83.2759
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gautama_Buddha",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Birth of Buddha (-563).png",
+                "caption": "Statue of Buddha",
+                "year": -563,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 202,
         "country": "China",
         "continent": "Asia",
-        "title": "Opium Wars Begin",
+        "title": "The Unification of China under Qin Shi Huang",
+        "year": -221,
+        "type": "revolution",
+        "description": "The first emperor of China unified the Warring States, standardized weights and measures, and began construction of the Great Wall.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            34.3416,
+            108.9398
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Qin_Shi_Huang",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Unification of China (-221).png",
+                "caption": "Portrait of Qin Shi Huang",
+                "year": -221,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 203,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Battle of Kalinga",
+        "year": -261,
+        "type": "war",
+        "description": "A brutal war that led Emperor Ashoka to renounce violence and convert to Buddhism, sparking its spread across Asia.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            20.2961,
+            85.8245
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Kalinga_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Battle of Kalinga (-261).png",
+                "caption": "Ashoka's Conversion",
+                "year": -261,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 204,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Invention of Paper",
+        "year": 105,
+        "type": "science",
+        "description": "Traditionally credited to Cai Lun during the Han Dynasty, paper revolutionized the recording and spread of knowledge.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            34.6197,
+            112.4506
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/History_of_paper",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Invention of Paper (105).png",
+                "caption": "Ancient Papermaking Process",
+                "year": 105,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 205,
+        "country": "Uzbekistan",
+        "continent": "Asia",
+        "title": "The Muslim Conquest of Transoxiana",
+        "year": 673,
+        "type": "war",
+        "description": "The expansion of the Umayyad Caliphate into Central Asia, bringing Islamic culture and the Arabic language to the Silk Road.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            39.6542,
+            66.9597
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Conquest of Transoxiana (673).png",
+                "caption": "Registan Square, Samarkand",
+                "year": 673,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 206,
+        "country": "Kyrgyzstan",
+        "continent": "Asia",
+        "title": "The Battle of Talas",
+        "year": 751,
+        "type": "war",
+        "description": "A conflict between the Abbasid Caliphate and the Tang Dynasty that determined the cultural boundary between Islam and Chinese influence.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            42.5228,
+            72.2427
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Talas",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Battle of Talas (751).png",
+                "caption": "Depiction of the Battle",
+                "year": 751,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 207,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Invention of Gunpowder",
+        "year": 850,
+        "type": "science",
+        "description": "Discovered by Chinese alchemists seeking an elixir of life, gunpowder forever changed the nature of global warfare.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            34.2676,
+            108.9534
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gunpowder",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Invention of Gunpowder (850).png",
+                "caption": "Ancient Chinese Fire Arrows",
+                "year": 850,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 208,
+        "country": "Mongolia",
+        "continent": "Asia",
+        "title": "The Rise of the Mongol Empire",
+        "year": 1206,
+        "type": "revolution",
+        "description": "Genghis Khan unified the Mongol tribes and began conquests that created the largest contiguous land empire in history.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            47.2023,
+            102.8335
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Mongol_Empire",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Rise of Mongol Empire (1206).png",
+                "caption": "Portrait of Genghis Khan",
+                "year": 1206,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 209,
+        "country": "Cambodia",
+        "continent": "Asia",
+        "title": "The Construction of Angkor Wat",
+        "year": 1113,
+        "type": "culture",
+        "description": "Built by King Suryavarman II, this temple complex remains the largest religious monument in the world and a peak of Khmer architecture.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            13.4125,
+            103.8670
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Angkor_Wat",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Angkor Wat (1113).png",
+                "caption": "Temple complex of Angkor Wat",
+                "year": 1113,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 210,
+        "country": "Iraq",
+        "continent": "Asia",
+        "title": "The Mongol Siege of Baghdad",
+        "year": 1258,
+        "type": "war",
+        "description": "The destruction of the Abbasid capital marked the end of the Islamic Golden Age and shifted the center of the Muslim world.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            33.3152,
+            44.3661
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Siege_of_Baghdad_(1258)",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Siege of Baghdad (1258).png",
+                "caption": "Destruction of the House of Wisdom",
+                "year": 1258,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 211,
+        "country": "Korea",
+        "continent": "Asia",
+        "title": "The Invention of Movable Type Printing",
+        "year": 1377,
+        "type": "science",
+        "description": "The Jikji is the oldest known book printed with movable metal type, predating the Gutenberg Bible by several decades.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            36.6372,
+            127.4897
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Jikji",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Movable Type Printing (1377).png",
+                "caption": "The Jikji",
+                "year": 1377,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 212,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Battle of Panipat (First)",
+        "year": 1526,
+        "type": "war",
+        "description": "Babur's victory over the Lodi Dynasty established the Mughal Empire, which would rule the Indian subcontinent for centuries.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            29.3909,
+            76.9635
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/First_Battle_of_Panipat",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Battle of Panipat (1526).png",
+                "caption": "Babur at the Battle of Panipat",
+                "year": 1526,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 213,
+        "country": "Japan",
+        "continent": "Asia",
+        "title": "The Siege of Osaka",
+        "year": 1614,
+        "type": "war",
+        "description": "The final victory of the Tokugawa Shogunate over the Toyotomi clan, initiating over 250 years of peace and isolation in Japan.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            34.6873,
+            135.5262
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Siege_of_Osaka",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Siege of Osaka (1614).png",
+                "caption": "Osaka Castle Siege",
+                "year": 1614,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 214,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Construction of the Taj Mahal",
+        "year": 1632,
+        "type": "culture",
+        "description": "Commissioned by Shah Jahan in memory of his wife, this marble mausoleum is the pinnacle of Indo-Islamic architecture.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            27.1751,
+            78.0421
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Taj_Mahal",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Taj Mahal (1632).png",
+                "caption": "The Taj Mahal",
+                "year": 1632,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 215,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Opium Wars",
         "year": 1839,
         "type": "war",
-        "description": "Conflicts between the Qing Dynasty and Great Britain over trade and sovereignty, significantly weakening imperial China.",
-        "casualties": "20,000+",
+        "description": "Conflicts between Britain and the Qing Dynasty that forced China to cede Hong Kong and open ports to foreign trade.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            23.1291,
+            113.2644
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Opium_Wars",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Opium Wars (1839).png",
+                "caption": "British Gunboats in China",
+                "year": 1839,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 216,
+        "country": "Japan",
+        "continent": "Asia",
+        "title": "The Meiji Restoration",
+        "year": 1868,
+        "type": "revolution",
+        "description": "The restoration of imperial rule triggered Japan's rapid modernization and transformation into a global industrial power.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            35.6895,
+            139.6917
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Meiji_Restoration",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Meiji Restoration (1868).png",
+                "caption": "Emperor Meiji",
+                "year": 1868,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 217,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Taiping Rebellion",
+        "year": 1850,
+        "type": "war",
+        "description": "One of the deadliest conflicts in human history, this massive civil war nearly toppled the Qing Dynasty.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            32.0581,
+            118.7965
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Taiping_Rebellion",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Taiping Rebellion (1850).png",
+                "caption": "Taiping Rebels Fighting",
+                "year": 1850,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 218,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Russo-Japanese War",
+        "year": 1904,
+        "type": "war",
+        "description": "Japan's victory over Russia was the first time in modern history that an Asian power defeated a European one.",
         "intensity_score": 0.85,
+        "coordinates": [
+            38.8072,
+            121.2422
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Russo-Japanese_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Russo-Japanese War (1904).png",
+                "caption": "Battle of Port Arthur",
+                "year": 1904,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 219,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Xinhai Revolution",
+        "year": 1911,
+        "type": "revolution",
+        "description": "The uprising that overthrew the Qing Dynasty, ending over 2,000 years of imperial rule and establishing the Republic of China.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            30.5928,
+            114.3055
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/1911_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Xinhai Revolution (1911).png",
+                "caption": "Revolutionary Forces in Wuchang",
+                "year": 1911,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 220,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Discovery of Zero as a Number",
+        "year": 628,
+        "type": "science",
+        "description": "Brahmagupta's Brahmasphutasiddhanta formalized the rules for using zero, fundamentally enabling modern mathematics.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            26.2183,
+            78.1828
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/0",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Discovery of Zero (628).png",
+                "caption": "Ancient Indian Manuscript",
+                "year": 628,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 221,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Jallianwala Bagh Massacre",
+        "year": 1919,
+        "type": "culture",
+        "description": "British troops fired on a peaceful gathering, radicalizing the Indian independence movement and turning the public against colonial rule.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            31.6200,
+            74.8765
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Jallianwala_Bagh_massacre",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Jallianwala Bagh (1919).png",
+                "caption": "Memorial at Jallianwala Bagh",
+                "year": 1919,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 222,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Salt March",
+        "year": 1930,
+        "type": "revolution",
+        "description": "Mahatma Gandhi led a 240-mile march to protest the British salt tax, demonstrating the power of non-violent civil disobedience.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            20.8906,
+            72.5855
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Salt_March",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Salt March (1930).png",
+                "caption": "Gandhi during the Salt March",
+                "year": 1930,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 223,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Long March",
+        "year": 1934,
+        "type": "war",
+        "description": "The Red Army's 6,000-mile retreat solidified Mao Zedong's leadership and preserved the Chinese Communist Party.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            25.8509,
+            114.9402
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Long_March",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Long March (1934).png",
+                "caption": "Mao Zedong on the Long March",
+                "year": 1934,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 224,
+        "country": "Japan",
+        "continent": "Asia",
+        "title": "The Hiroshima Atomic Bombing",
+        "year": 1945,
+        "type": "war",
+        "description": "The first use of an atomic weapon in warfare, leading to Japan's surrender and the start of the nuclear age.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            34.3853,
+            132.4553
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Atomic_bombings_of_Hiroshima_and_Nagasaki",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Hiroshima Bombing (1945).png",
+                "caption": "Atomic cloud over Hiroshima",
+                "year": 1945,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 225,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Partition of India",
+        "year": 1947,
+        "type": "revolution",
+        "description": "The division of British India into India and Pakistan caused the largest mass migration in history and intense sectarian violence.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            28.6139,
+            77.2090
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Partition_of_India",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Partition of India (1947).png",
+                "caption": "Mass migration during Partition",
+                "year": 1947,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 226,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Establishment of the People's Republic of China",
+        "year": 1949,
+        "type": "revolution",
+        "description": "Mao Zedong's victory in the Chinese Civil War transformed the world's most populous nation into a communist state.",
+        "intensity_score": 0.9,
         "coordinates": [
             39.9042,
             116.4074
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Proclamation_of_the_People%27s_Republic_of_China",
         "images": [
             {
-                "url": "assets/images/opium_war_1.jpg",
-                "caption": "Battle of Chuenpi",
-                "year": 1841,
-                "credit": "National Maritime Museum"
-            },
+                "url": "assets/images/events/asia/PRC Establishment (1949).png",
+                "caption": "Mao proclaiming the PRC",
+                "year": 1949,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 227,
+        "country": "Korea",
+        "continent": "Asia",
+        "title": "The Korean War",
+        "year": 1950,
+        "type": "war",
+        "description": "A Cold War conflict that ended in a stalemate, leaving the Korean Peninsula divided by the most heavily fortified border in the world.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            37.9555,
+            126.6690
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Korean_War",
+        "images": [
             {
-                "url": "assets/images/opium_war_2.jpg",
-                "caption": "Treaty of Nanjing",
-                "year": 1842,
+                "url": "assets/images/events/asia/Korean War (1950).png",
+                "caption": "Refugees during the Korean War",
+                "year": 1950,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 228,
+        "country": "Indonesia",
+        "continent": "Asia",
+        "title": "The Bandung Conference",
+        "year": 1955,
+        "type": "culture",
+        "description": "A meeting of Asian and African states that promoted Afro-Asian economic and cultural cooperation and opposed colonialism.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            -6.9175,
+            107.6191
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Bandung_Conference",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Bandung Conference (1955).png",
+                "caption": "Delegates at the Bandung Conference",
+                "year": 1955,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 229,
+        "country": "Vietnam",
+        "continent": "Asia",
+        "title": "The Vietnam War (Fall of Saigon)",
+        "year": 1975,
+        "type": "war",
+        "description": "The end of the long-running conflict resulted in the unification of Vietnam under communist rule and a major U.S. geopolitical shift.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            10.7769,
+            106.7009
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Vietnam_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Fall of Saigon (1975).png",
+                "caption": "Evacuation of Saigon",
+                "year": 1975,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 230,
+        "country": "Iran",
+        "continent": "Asia",
+        "title": "The Iranian Revolution",
+        "year": 1979,
+        "type": "revolution",
+        "description": "The overthrow of the Pahlavi dynasty and the establishment of an Islamic Republic under Ayatollah Khomeini.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            35.6892,
+            51.3890
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Iranian_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Iranian Revolution (1979).png",
+                "caption": "Khomeini returns to Iran",
+                "year": 1979,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 231,
+        "country": "Afghanistan",
+        "continent": "Asia",
+        "title": "The Soviet-Afghan War",
+        "year": 1979,
+        "type": "war",
+        "description": "An insurgent conflict that weakened the Soviet Union and led to the rise of the Mujahideen and later extremist groups.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            34.5553,
+            69.2075
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Soviet%E2%80%93Afghan_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Soviet-Afghan War (1979).png",
+                "caption": "Soviet tanks in Afghanistan",
+                "year": 1979,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 232,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Bhopal Disaster",
+        "year": 1984,
+        "type": "science",
+        "description": "The world's worst industrial disaster, involving a pesticide plant gas leak, which led to global changes in industrial safety laws.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            23.2599,
+            77.4126
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Bhopal_disaster",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Bhopal Disaster (1984).png",
+                "caption": "Aftermath of the Bhopal gas leak",
+                "year": 1984,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 233,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Tiananmen Square Protests",
+        "year": 1989,
+        "type": "revolution",
+        "description": "Student-led demonstrations for democracy that were violently suppressed by the government, marking a turning point in modern Chinese history.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            39.9033,
+            116.3917
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/1989_Tiananmen_Square_protests_and_massacre",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Tiananmen Square (1989).png",
+                "caption": "Tank Man in Tiananmen Square",
+                "year": 1989,
+                "credit": "Jeff Widener"
+            }
+        ]
+    },
+    {
+        "id": 234,
+        "country": "Kuwait",
+        "continent": "Asia",
+        "title": "The Gulf War",
+        "year": 1990,
+        "type": "war",
+        "description": "A coalition led by the United States liberated Kuwait after its invasion by Iraq, establishing a new era of Middle Eastern intervention.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            29.3759,
+            47.9774
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gulf_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Gulf War (1990).png",
+                "caption": "Oil fires in Kuwait",
+                "year": 1991,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 235,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Economic Liberalization of India",
+        "year": 1991,
+        "type": "revolution",
+        "description": "Drastic economic reforms that opened India to global trade, significantly accelerating its GDP growth and middle-class expansion.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            28.6139,
+            77.2090
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Economic_liberalisation_in_India",
+        "images": [
+            {
+                "url": "assets/images/events/asia/India Liberalization (1991).png",
+                "caption": "Dr. Manmohan Singh presenting the 1991 budget",
+                "year": 1991,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 236,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Handover of Hong Kong",
+        "year": 1997,
+        "type": "culture",
+        "description": "The transfer of sovereignty over Hong Kong from the United Kingdom to China under the \"one country, two systems\" principle.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            22.2797,
+            114.1648
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Handover_of_Hong_Kong",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Hong Kong Handover (1997).png",
+                "caption": "Handover Ceremony",
+                "year": 1997,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 237,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The Discovery of the Terracotta Army",
+        "year": 1974,
+        "type": "culture",
+        "description": "Local farmers accidentally discovered thousands of life-sized clay soldiers buried with China's first emperor, a major archaeological feat.",
+        "intensity_score": 0.3,
+        "coordinates": [
+            34.3841,
+            109.2785
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Terracotta_Army",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Terracotta Army (1974).png",
+                "caption": "Terracotta warriors in Xi'an",
+                "year": 1974,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 238,
+        "country": "Israel",
+        "continent": "Asia",
+        "title": "The Israel-Palestine Conflict (Six-Day War)",
+        "year": 1967,
+        "type": "war",
+        "description": "A swift war that reshaped the map of the Middle East, leading to Israeli occupation of the West Bank and Gaza Strip.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            31.7683,
+            35.2137
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Six-Day_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Six-Day War (1967).png",
+                "caption": "Israeli paratroopers at the Western Wall",
+                "year": 1967,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 239,
+        "country": "Japan",
+        "continent": "Asia",
+        "title": "The Invention of the Walkman",
+        "year": 1979,
+        "type": "science",
+        "description": "Sony's introduction of the portable cassette player revolutionized personal audio and global youth culture.",
+        "intensity_score": 0.3,
+        "coordinates": [
+            35.6895,
+            139.6917
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Walkman",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Walkman (1979).png",
+                "caption": "Original Sony Walkman",
+                "year": 1979,
+                "credit": "Sony Corporation"
+            }
+        ]
+    },
+    {
+        "id": 240,
+        "country": "Iraq",
+        "continent": "Asia",
+        "title": "The Rise of the Islamic State (ISIS)",
+        "year": 2014,
+        "type": "war",
+        "description": "The rapid territorial expansion of a militant group that destabilized Iraq and Syria, sparking a massive international military response.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            36.3489,
+            43.1577
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Islamic_State",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Rise of ISIS (2014).png",
+                "caption": "ISIS occupation of Mosul",
+                "year": 2014,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 241,
+        "country": "China",
+        "continent": "Asia",
+        "title": "The First Human Spaceflight by an Asian (Yang Liwei)",
+        "year": 2003,
+        "type": "science",
+        "description": "China became the third nation to independently send a human into space, marking its emergence as a major space power.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            40.9631,
+            100.2721
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Shenzhou_5",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Yang Liwei Spaceflight (2003).png",
+                "caption": "Yang Liwei in the Shenzhou 5 capsule",
+                "year": 2003,
+                "credit": "CNSA"
+            }
+        ]
+    },
+    {
+        "id": 242,
+        "country": "South Korea",
+        "continent": "Asia",
+        "title": "The Gwangju Uprising",
+        "year": 1980,
+        "type": "revolution",
+        "description": "A popular uprising against the military dictatorship that, despite being crushed, became a symbol of South Korea's struggle for democracy.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            35.1595,
+            126.8526
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gwangju_Uprising",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Gwangju Uprising (1980).png",
+                "caption": "Memorial at Gwangju",
+                "year": 1980,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 243,
+        "country": "Thailand",
+        "continent": "Asia",
+        "title": "The Foundation of ASEAN",
+        "year": 1967,
+        "type": "culture",
+        "description": "The creation of the Association of Southeast Asian Nations aimed to accelerate economic growth and regional stability.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            13.7563,
+            100.5018
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/ASEAN",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Foundation of ASEAN (1967).png",
+                "caption": "Founders of ASEAN",
+                "year": 1967,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 244,
+        "country": "Cambodia",
+        "continent": "Asia",
+        "title": "The Cambodian Genocide",
+        "year": 1975,
+        "type": "war",
+        "description": "The Khmer Rouge regime's attempt to create an agrarian utopia resulted in the deaths of nearly 2 million people through execution and starvation.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            11.5564,
+            104.9282
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Cambodian_genocide",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Cambodian Genocide (1975).png",
+                "caption": "Tuol Sleng Genocide Museum",
+                "year": 1975,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 245,
+        "country": "Sri Lanka",
+        "continent": "Asia",
+        "title": "The Sri Lankan Civil War (End)",
+        "year": 2009,
+        "type": "war",
+        "description": "The defeat of the LTTE by the Sri Lankan military ended a 26-year ethnic conflict that devastated the island nation.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            9.2635,
+            80.7063
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Sri_Lankan_Civil_War",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Sri Lankan Civil War (2009).png",
+                "caption": "End of conflict in Sri Lanka",
+                "year": 2009,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 246,
+        "country": "India",
+        "continent": "Asia",
+        "title": "The Launch of the Mars Orbiter Mission (Mangalyaan)",
+        "year": 2013,
+        "type": "science",
+        "description": "India became the first nation to reach Mars on its maiden attempt, demonstrating highly cost-effective space exploration.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            13.7196,
+            80.2307
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Mars_Orbiter_Mission",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Mangalyaan (2013).png",
+                "caption": "PSLV-C25 launch of Mangalyaan",
+                "year": 2013,
+                "credit": "ISRO"
+            }
+        ]
+    },
+    {
+        "id": 247,
+        "country": "Yemen",
+        "continent": "Asia",
+        "title": "The Arab Spring (Yemen)",
+        "year": 2011,
+        "type": "revolution",
+        "description": "Protests against authoritarian rule led to the resignation of President Ali Abdullah Saleh, eventually spiraling into a complex civil war.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            15.3694,
+            44.1910
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Yemeni_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Arab Spring Yemen (2011).png",
+                "caption": "Protests in Sana'a",
+                "year": 2011,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 248,
+        "country": "Israel",
+        "continent": "Asia",
+        "title": "The Creation of the State of Israel",
+        "year": 1948,
+        "type": "revolution",
+        "description": "Following the end of the British Mandate, the declaration of independence led immediately to the first Arab-Israeli War.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            32.0853,
+            34.7818
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Declaration_of_Independence_(Israel)",
+        "images": [
+            {
+                "url": "assets/images/events/asia/State of Israel (1948).png",
+                "caption": "David Ben-Gurion proclaiming independence",
+                "year": 1948,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 249,
+        "country": "Syria",
+        "continent": "Asia",
+        "title": "The Syrian Civil War",
+        "year": 2011,
+        "type": "war",
+        "description": "Beginning as peaceful protests, it escalated into a multi-sided conflict involving international powers and causing a massive refugee crisis.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            36.2021,
+            37.1343
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Syrian_civil_war",
+        "images": [
+            {
+                "url": "assets/images/events/asia/Syrian Civil War (2011).png",
+                "caption": "Rubble in Aleppo",
+                "year": 2011,
                 "credit": "Public Domain"
             }
         ]

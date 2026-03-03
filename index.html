@@ -4,6 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ChronoSphere is an AI-powered interactive historical world map. Travel through time, explore ancient civilizations, and dive into global events with a premium, animated geographical interface.">
+    <meta name="keywords"
+        content="History, Interactive Map, Timeline, AI Simulation, World Events, ChronoSphere, Educational Tool">
+    <meta name="author" content="Antigravity AI">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ChronoSphere | Interactive Historical World Map">
+    <meta property="og:description"
+        content="Explore the history of humanity on a dynamic, high-fidelity interactive map and simulate 'What If' scenarios with AI.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌏</text></svg>">
+
     <title>ChronoSphere | AI-Powered Time-Travel Interactive World Map</title>
     <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -19,7 +34,10 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <!-- Main Stylesheet -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
 </head>
 
 <body class="dark-theme">
@@ -47,6 +65,11 @@
                     <button class="filter-chip" data-filter="culture">Culture</button>
                     <button class="filter-chip" data-filter="science">Science</button>
                 </div>
+                <div class="pill-divider"></div>
+                <button id="nav-simulator" class="pill-btn">
+                    <span class="icon">✨</span>
+                    <span class="label">What If?</span>
+                </button>
                 <div class="pill-divider"></div>
                 <button id="toggle-ui" class="pill-btn icon-only" title="Toggle UI">👁️</button>
             </div>
@@ -99,7 +122,7 @@
                 <div id="card-body" class="card-body">
                     <p id="card-description">Description goes here...</p>
                     <div id="card-images" class="card-gallery"></div>
-                    <button id="card-simulator" class="btn-card-simulator">✨ Run "What If?" Simulation</button>
+                    <button id="card-learn-more" class="btn-card-learn-more">📚 Learn More</button>
                 </div>
 
             </div>

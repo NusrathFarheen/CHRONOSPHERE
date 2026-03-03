@@ -1,75 +1,345 @@
 [
     {
-        "id": 1,
-        "country": "Italy",
+        "id": 300,
+        "country": "Belgium",
         "continent": "Europe",
-        "title": "Renaissance Peak",
-        "year": 1500,
-        "type": "culture",
-        "description": "The height of the Italian Renaissance, marked by the works of Leonardo da Vinci and Michelangelo, fundamentally changing art and science.",
-        "casualties": null,
-        "intensity_score": 0.4,
+        "title": "The Battle of Waterloo",
+        "year": 1815,
+        "type": "war",
+        "description": "A coalition led by the Duke of Wellington and Gebhard von Bl\u00fccher defeated Napoleon Bonaparte, ending his rule as Emperor and the Napoleonic Wars.",
+        "intensity_score": 0.95,
         "coordinates": [
-            41.9028,
-            12.4964
+            50.6853,
+            4.4074
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Waterloo",
         "images": [
             {
-                "url": "assets/images/renaissance_1.jpg",
-                "caption": "Renaissance Masterpiece",
-                "year": 1503,
+                "url": "assets/images/events/europe/Battle of Waterloo (1815).png",
+                "caption": "The Battle of Waterloo",
+                "year": 1815,
                 "credit": "Public Domain"
             }
         ]
     },
     {
-        "id": 2,
-        "country": "France",
+        "id": 301,
+        "country": "Germany",
         "continent": "Europe",
-        "title": "The French Revolution",
-        "year": 1789,
+        "title": "The Fall of the Berlin Wall",
+        "year": 1989,
         "type": "revolution",
-        "description": "The storming of the Bastille marked the beginning of a period of radical social and political upheaval in France.",
-        "casualties": "40,000 (The Terror)",
-        "intensity_score": 0.8,
+        "description": "The dismantling of the barrier separating East and West Berlin symbolized the collapse of communist governments in Eastern Europe and the end of the Cold War.",
+        "intensity_score": 0.9,
         "coordinates": [
-            48.8566,
-            2.3522
+            52.5163,
+            13.3777
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_the_Berlin_Wall",
         "images": [
             {
-                "url": "assets/images/french_revolution_1.jpg",
-                "caption": "The Tennis Court Oath",
+                "url": "assets/images/events/europe/Fall of Berlin Wall (1989).png",
+                "caption": "People celebrating on the Berlin Wall",
+                "year": 1989,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 302,
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "title": "The Discovery of Penicillin",
+        "year": 1928,
+        "type": "science",
+        "description": "Alexander Fleming's accidental discovery of the first true antibiotic revolutionized medicine and saved millions of lives from bacterial infections.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            51.5175,
+            -0.1741
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Penicillin",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Discovery of Penicillin (1928).png",
+                "caption": "Laboratory where penicillin was discovered",
+                "year": 1928,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 303,
+        "country": "France",
+        "continent": "Europe",
+        "title": "The French Revolution (Storming of the Bastille)",
+        "year": 1789,
+        "type": "revolution",
+        "description": "Citizens stormed the state prison, sparking a period of radical social and political upheaval that overthrew the monarchy and established the Republic.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            48.8533,
+            2.3691
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/French_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/europe/French Revolution (1789).png",
+                "caption": "The Storming of the Bastille",
                 "year": 1789,
                 "credit": "Public Domain"
             }
         ]
     },
     {
-        "id": 3,
+        "id": 304,
         "country": "Germany",
         "continent": "Europe",
-        "title": "World War II Begins",
-        "year": 1939,
-        "type": "war",
-        "description": "The invasion of Poland by Nazi Germany marked the start of the deadliest conflict in human history.",
-        "casualties": "75 Million+",
-        "intensity_score": 1.0,
+        "title": "The Printing of the Gutenberg Bible",
+        "year": 1455,
+        "type": "science",
+        "description": "Johannes Gutenberg's use of movable type heralded the age of mass communication and the permanent alteration of the structure of society.",
+        "intensity_score": 0.6,
         "coordinates": [
-            52.5200,
-            13.4050
+            49.9929,
+            8.2473
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Gutenberg_Bible",
         "images": [
             {
-                "url": "assets/images/wwii_germany_1.jpg",
-                "caption": "Berlin in Ruin",
-                "year": 1945,
-                "credit": "Historical Archives"
-            },
+                "url": "assets/images/events/europe/Gutenberg Bible (1455).png",
+                "caption": "A page from the Gutenberg Bible",
+                "year": 1455,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 305,
+        "country": "Russia",
+        "continent": "Europe",
+        "title": "The Battle of Stalingrad",
+        "year": 1942,
+        "type": "war",
+        "description": "One of the bloodiest battles in history, this Soviet victory over Nazi Germany was a major turning point on the Eastern Front of World War II.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            48.7080,
+            44.5133
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Stalingrad",
+        "images": [
             {
-                "url": "assets/images/wwii_germany_2.jpg",
-                "caption": "Surrender of Germany",
-                "year": 1945,
+                "url": "assets/images/events/europe/Battle of Stalingrad (1942).png",
+                "caption": "Soldiers in the ruins of Stalingrad",
+                "year": 1942,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 306,
+        "country": "Italy",
+        "continent": "Europe",
+        "title": "The Black Death",
+        "year": 1347,
+        "type": "culture",
+        "description": "A bubonic plague pandemic that wiped out nearly one-third of Europe's population, leading to massive shifts in labor rights and religious thought.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            38.1938,
+            15.5540
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Black_Death",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Black Death (1347).png",
+                "caption": "Plague victims in a medieval depiction",
+                "year": 1347,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 307,
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "title": "The Publication of \"On the Origin of Species\"",
+        "year": 1859,
+        "type": "science",
+        "description": "Charles Darwin introduced the theory of evolution by natural selection, fundamentally changing our understanding of biology and the natural world.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            51.5074,
+            -0.1278
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/On_the_Origin_of_Species",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Origin of Species (1859).png",
+                "caption": "Title page of the first edition",
+                "year": 1859,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 308,
+        "country": "Germany",
+        "continent": "Europe",
+        "title": "The Treaty of Westphalia",
+        "year": 1648,
+        "type": "war",
+        "description": "A series of peace treaties that ended the Thirty Years' War, establishing the modern concept of the sovereign nation-state.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            51.9607,
+            7.6261
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Peace_of_Westphalia",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Treaty of Westphalia (1648).png",
+                "caption": "Delegates at the signing of the treaty",
+                "year": 1648,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 309,
+        "country": "Ukraine",
+        "continent": "Europe",
+        "title": "The Chernobyl Disaster",
+        "year": 1986,
+        "type": "science",
+        "description": "A catastrophic nuclear accident at the No. 4 reactor, which led to widespread environmental damage and heightened global opposition to nuclear power.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            51.4045,
+            30.0547
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Chernobyl_disaster",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Chernobyl Disaster (1986).png",
+                "caption": "The Sarcophagus covering the reactor",
+                "year": 1986,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 310,
+        "country": "Spain",
+        "continent": "Europe",
+        "title": "The Spanish Civil War",
+        "year": 1936,
+        "type": "war",
+        "description": "A brutal conflict between the Republicans and the Nationalists led by Francisco Franco, often seen as a dress rehearsal for World War II.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            40.4168,
+            -3.7038
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Spanish_Civil_War",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Spanish Civil War (1936).png",
+                "caption": "Republican soldiers during the war",
+                "year": 1936,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 311,
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "title": "The Defeat of the Spanish Armada",
+        "year": 1588,
+        "type": "war",
+        "description": "An English fleet defeated a massive Spanish invasion force, shifting the naval balance of power in Europe toward England.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            50.5000,
+            -1.0000
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Spanish_Armada",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Spanish Armada (1588).png",
+                "caption": "Naval battle of the Armada",
+                "year": 1588,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 312,
+        "country": "Italy",
+        "continent": "Europe",
+        "title": "The Coronation of Charlemagne",
+        "year": 800,
+        "type": "culture",
+        "description": "Pope Leo III crowned Charlemagne as Emperor of the Romans, reviving the title in the West and forming the foundation of the Holy Roman Empire.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            41.9029,
+            12.4534
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Charlemagne",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Coronation of Charlemagne (800).png",
+                "caption": "Coronation of Charlemagne",
+                "year": 800,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 313,
+        "country": "United Kingdom",
+        "continent": "Europe",
+        "title": "The Industrial Revolution (Watt's Steam Engine)",
+        "year": 1776,
+        "type": "science",
+        "description": "James Watt's improvements to the steam engine provided the power source that drove the transition from agrarian to industrial societies.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            52.4862,
+            -1.8904
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Industrial_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Industrial Revolution (1776).png",
+                "caption": "Early Watt Steam Engine",
+                "year": 1776,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 314,
+        "country": "Russia",
+        "continent": "Europe",
+        "title": "The Russian Revolution",
+        "year": 1917,
+        "type": "revolution",
+        "description": "The Bolsheviks, led by Vladimir Lenin, overthrew the provisional government, leading to the creation of the Soviet Union.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            59.9311,
+            30.3609
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Russian_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Russian Revolution (1917).png",
+                "caption": "Lenin speaking in Moscow",
+                "year": 1917,
                 "credit": "Public Domain"
             }
         ]

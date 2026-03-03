@@ -1,47 +1,231 @@
 [
     {
-        "id": 30,
-        "country": "United States",
-        "continent": "North America",
-        "title": "Declaration of Independence",
-        "year": 1776,
-        "type": "revolution",
-        "description": "The Continental Congress adopted the Declaration of Independence, severing political ties with Great Britain.",
-        "casualties": null,
-        "intensity_score": 0.8,
+        "id": 100,
+        "country": "Mexico",
+        "continent": "Americas",
+        "title": "The Fall of Tenochtitlan",
+        "year": 1521,
+        "type": "war",
+        "description": "Spanish forces led by Hern\u00e1n Cort\u00e9s, aided by indigenous allies, captured the Aztec capital, marking the end of the Aztec Empire and the beginning of Spanish colonial rule.",
+        "intensity_score": 1.0,
         "coordinates": [
-            39.9489,
-            -75.1500
+            19.4326,
+            -99.1332
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan",
         "images": [
             {
-                "url": "assets/images/declaration_independence_1.jpg",
-                "caption": "Signing of the Declaration",
-                "year": 1776,
-                "credit": "National Archives"
+                "url": "assets/images/events/americas/Fall of Tenochtitlan (1521).png",
+                "caption": "Capture of Tenochtitlan",
+                "year": 1521,
+                "credit": "Public Domain"
             }
         ]
     },
     {
-        "id": 31,
-        "country": "Colombia",
-        "continent": "South America",
-        "title": "Gran Colombia Independence",
-        "year": 1819,
-        "type": "revolution",
-        "description": "Simón Bolívar's forces defeated the Spanish, leading to the creation of Gran Colombia and the liberation of northern South America.",
-        "casualties": "5,000+",
-        "intensity_score": 0.75,
+        "id": 101,
+        "country": "United States",
+        "continent": "Americas",
+        "title": "The Battle of Gettysburg",
+        "year": 1863,
+        "type": "war",
+        "description": "Considered the turning point of the American Civil War, this battle ended General Robert E. Lee's second invasion of the North and resulted in the largest number of casualties in the entire conflict.",
+        "intensity_score": 1.0,
         "coordinates": [
-            4.7110,
-            -74.0721
+            39.8143,
+            -77.2346
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Gettysburg",
         "images": [
             {
-                "url": "assets/images/bolivar_victory_1.jpg",
-                "caption": "Simón Bolívar in Bogotá",
-                "year": 1819,
+                "url": "assets/images/events/americas/Battle of Gettysburg (1863).png",
+                "caption": "Charge of the Union Army",
+                "year": 1863,
                 "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 102,
+        "country": "Haiti",
+        "continent": "Americas",
+        "title": "The Haitian Revolution",
+        "year": 1791,
+        "type": "revolution",
+        "description": "A successful anti-slavery and anti-colonial insurrection by self-liberated slaves against French colonial rule, leading to the establishment of the world's first free black republic.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            18.5392,
+            -72.3350
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Haitian_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Haitian Revolution (1791).png",
+                "caption": "Haitian Revolutionaries",
+                "year": 1791,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 103,
+        "country": "Peru",
+        "continent": "Americas",
+        "title": "The Discovery of Machu Picchu",
+        "year": 1911,
+        "type": "science",
+        "description": "Although known to locals, the \"Lost City of the Incas\" was brought to international attention by Hiram Bingham, providing unprecedented insight into Incan architecture and astronomy.",
+        "intensity_score": 0.4,
+        "coordinates": [
+            -13.1631,
+            -72.5450
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Machu_Picchu",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Machu Picchu (1911).png",
+                "caption": "Ruins of Machu Picchu",
+                "year": 1911,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 104,
+        "country": "Cuba",
+        "continent": "Americas",
+        "title": "The Cuban Revolution",
+        "year": 1959,
+        "type": "revolution",
+        "description": "An armed revolt conducted by Fidel Castro\u2019s 26th of July Movement against the military dictatorship of Fulgencio Batista, reshaping Cold War geopolitics in the Western Hemisphere.",
+        "intensity_score": 0.85,
+        "coordinates": [
+            23.1136,
+            -82.3666
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Cuban_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Cuban Revolution (1959).png",
+                "caption": "Fidel Castro entering Havana",
+                "year": 1959,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 105,
+        "country": "United States",
+        "continent": "Americas",
+        "title": "The Wright Brothers' First Flight",
+        "year": 1903,
+        "type": "science",
+        "description": "Orville and Wilbur Wright achieved the first powered, controlled, and sustained flight of a heavier-than-air aircraft, fundamentally changing global transportation and warfare.",
+        "intensity_score": 0.6,
+        "coordinates": [
+            36.0626,
+            -75.6667
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Wright_flyer",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Wright First Flight (1903).png",
+                "caption": "First successful powered flight",
+                "year": 1903,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 106,
+        "country": "Mexico",
+        "continent": "Americas",
+        "title": "The Grito de Dolores",
+        "year": 1810,
+        "type": "revolution",
+        "description": "Catholic priest Miguel Hidalgo y Costilla rang his church bell and gave the call to arms that triggered the Mexican War of Independence against Spain.",
+        "intensity_score": 0.8,
+        "coordinates": [
+            21.1591,
+            -100.9308
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Grito_de_Dolores",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Grito de Dolores (1810).png",
+                "caption": "Hidalgo giving the Grito",
+                "year": 1810,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 107,
+        "country": "United States",
+        "continent": "Americas",
+        "title": "The Woodstock Music & Art Fair",
+        "year": 1969,
+        "type": "culture",
+        "description": "A pivotal moment in popular music history, this festival became the definitive expression of the 1960s counterculture movement and \"hippie\" era.",
+        "intensity_score": 0.5,
+        "coordinates": [
+            41.6845,
+            -74.8711
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Woodstock",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Woodstock (1969).png",
+                "caption": "Crowds at Woodstock",
+                "year": 1969,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 108,
+        "country": "Peru",
+        "continent": "Americas",
+        "title": "The Battle of Ayacucho",
+        "year": 1824,
+        "type": "war",
+        "description": "The final major battle of the Spanish American wars of independence, where revolutionary forces secured the liberation of Peru and ensured the independence of South America.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            -13.1611,
+            -74.2236
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Battle_of_Ayacucho",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Battle of Ayacucho (1824).png",
+                "caption": "The Battle of Ayacucho",
+                "year": 1824,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 109,
+        "country": "United States",
+        "continent": "Americas",
+        "title": "The Apollo 11 Moon Landing",
+        "year": 1969,
+        "type": "science",
+        "description": "Managed by NASA, this mission landed the first two humans on the Moon, representing a peak in the Space Race and human technological capability.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            29.5606,
+            -95.0853
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Apollo_11",
+        "images": [
+            {
+                "url": "assets/images/events/americas/Apollo 11 (1969).png",
+                "caption": "Buzz Aldrin on the Moon",
+                "year": 1969,
+                "credit": "NASA"
             }
         ]
     }

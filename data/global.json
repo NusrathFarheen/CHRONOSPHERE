@@ -1,24 +1,185 @@
 [
     {
-        "id": 50,
-        "country": "Global",
+        "id": 500,
+        "country": "Spain",
         "continent": "Global",
-        "title": "The Moon Landing",
-        "year": 1969,
+        "title": "The First Circumnavigation of the Globe",
+        "year": 1519,
         "type": "science",
-        "description": "NASA's Apollo 11 mission landed the first humans on the Moon, a monumental achievement for science and humanity.",
-        "casualties": null,
-        "intensity_score": 0.6,
+        "description": "Led by Ferdinand Magellan and completed by Juan Sebasti\u00e1n Elcano, this three-year voyage provided the first empirical proof that the world was round and connected by a single world ocean.",
+        "intensity_score": 0.8,
         "coordinates": [
-            28.5721,
-            -80.6480
+            37.3891,
+            -5.9845
         ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Magellan_expedition",
         "images": [
             {
-                "url": "assets/images/moon_landing_1.jpg",
-                "caption": "Buzz Aldrin on the Moon",
+                "url": "assets/images/events/global/First Circumnavigation (1519).png",
+                "caption": "Magellan's ship Victoria",
+                "year": 1519,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 501,
+        "country": "United Kingdom",
+        "continent": "Global",
+        "title": "The Industrial Revolution",
+        "year": 1760,
+        "type": "science",
+        "description": "The transition to new manufacturing processes using steam power sparked a global shift from agrarian economies to industrial ones, fundamentally altering human society and the environment.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            53.4808,
+            -2.2426
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Industrial_Revolution",
+        "images": [
+            {
+                "url": "assets/images/events/global/Industrial Revolution (1760).png",
+                "caption": "Early industrial factory",
+                "year": 1760,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 502,
+        "country": "Bosnia",
+        "continent": "Global",
+        "title": "World War I",
+        "year": 1914,
+        "type": "war",
+        "description": "A global conflict that redrew international borders, collapsed major empires, and led to the first large-scale use of chemical weapons and tanks.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            43.8563,
+            18.4131
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/World_War_I",
+        "images": [
+            {
+                "url": "assets/images/events/global/World War I (1914).png",
+                "caption": "Soldiers in the trenches",
+                "year": 1914,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 503,
+        "country": "United States",
+        "continent": "Global",
+        "title": "The Great Depression",
+        "year": 1929,
+        "type": "culture",
+        "description": "The most severe economic downturn in modern history, which caused a global collapse in trade, massive unemployment, and the rise of extremist political movements.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            40.7128,
+            -74.0060
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Great_Depression",
+        "images": [
+            {
+                "url": "assets/images/events/global/Great Depression (1929).png",
+                "caption": "Migrant Mother by Dorothea Lange",
+                "year": 1936,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 504,
+        "country": "Poland",
+        "continent": "Global",
+        "title": "World War II",
+        "year": 1939,
+        "type": "war",
+        "description": "The deadliest conflict in human history, resulting in the start of the nuclear age, the Holocaust, and the eventual formation of the United Nations.",
+        "intensity_score": 1.0,
+        "coordinates": [
+            54.3520,
+            18.6466
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/World_War_II",
+        "images": [
+            {
+                "url": "assets/images/events/global/World War II (1939).png",
+                "caption": "Raising the Flag on Iwo Jima",
+                "year": 1945,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 505,
+        "country": "Kazakhstan",
+        "continent": "Global",
+        "title": "The Launch of Sputnik 1",
+        "year": 1957,
+        "type": "science",
+        "description": "The Soviet Union launched the first artificial satellite into orbit, triggering the Space Race and beginning the era of global satellite communications.",
+        "intensity_score": 0.7,
+        "coordinates": [
+            45.9646,
+            63.3052
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Sputnik_1",
+        "images": [
+            {
+                "url": "assets/images/events/global/Sputnik 1 (1957).png",
+                "caption": "Sputnik 1 satellite",
+                "year": 1957,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 506,
+        "country": "United States",
+        "continent": "Global",
+        "title": "The Birth of the Internet (ARPANET)",
+        "year": 1969,
+        "type": "science",
+        "description": "The first message was sent between computers at UCLA and SRI, laying the technical foundation for the global network that defines the Information Age.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            34.0699,
+            -118.4438
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/History_of_the_Internet",
+        "images": [
+            {
+                "url": "assets/images/events/global/Birth of Internet (1969).png",
+                "caption": "Early ARPANET interface",
                 "year": 1969,
-                "credit": "NASA"
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 507,
+        "country": "China",
+        "continent": "Global",
+        "title": "The COVID-19 Pandemic",
+        "year": 2020,
+        "type": "science",
+        "description": "A global health crisis that caused millions of deaths, triggered worldwide lockdowns, and accelerated the digital transformation of work and education.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            30.5928,
+            114.3055
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/COVID-19_pandemic",
+        "images": [
+            {
+                "url": "assets/images/events/global/COVID-19 Pandemic (2020).png",
+                "caption": "Coronavirus visualization",
+                "year": 2020,
+                "credit": "Public Domain"
             }
         ]
     }
