@@ -1,58 +1,36 @@
-const CACHE_NAME = 'chronosphere-v3';
+const CACHE_NAME = 'chronosphere-v1';
 const ASSETS = [
     './',
     './index.html',
     './styles/main.css',
-    './styles/simulator.css',
     './js/app.js',
     './data/africa.json',
     './data/asia.json',
     './data/americas.json',
     './data/europe.json',
     './data/oceania.json',
-    './data/global.json',
-    'https://d3js.org/d3.v7.min.js'
+    './data/global.json'
 ];
 
-// Install: Cache all assets
 self.addEventListener('install', event => {
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
-    );
-    self.skipWaiting(); // Force activation
+    // Force immediate takeover
+    self.skipWaiting();
 });
 
-// Activate: Clean up old caches
 self.addEventListener('activate', event => {
+    // SILENT ASSASSIN: Destroy all caches from all versions instantly
     event.waitUntil(
         caches.keys().then(cacheNames => {
             return Promise.all(
-                cacheNames.filter(name => name !== CACHE_NAME)
-                    .map(name => caches.delete(name))
+                cacheNames.map(name => caches.delete(name))
             );
-        })
+        }).then(() => self.clients.claim())
     );
-    self.clients.claim(); // Take control immediately
 });
 
-// Fetch: Network-first for app logic, Cache-first for data
 self.addEventListener('fetch', event => {
-    const url = new URL(event.request.url);
-
-    // Check if it's a project logic file
-    const isLogicFile = url.pathname.endsWith('app.js') ||
-        url.pathname.endsWith('main.css') ||
-        url.pathname.endsWith('simulator.css');
-
-    if (isLogicFile) {
-        // Network first, fallback to cache
-        event.respondWith(
-            fetch(event.request).catch(() => caches.match(event.request))
-        );
-    } else {
-        // Cache first, fallback to network
-        event.respondWith(
-            caches.match(event.request).then(response => response || fetch(event.request))
-        );
-    }
+    // Bypass cache entirely to guarantee the user sees the true V4 files
+    event.respondWith(fetch(event.request)
+        .catch(() => caches.match(event.request))
+    );
 });

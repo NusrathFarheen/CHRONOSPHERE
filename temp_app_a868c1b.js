@@ -377,262 +377,28 @@ class ChronoSphere {
 
 
     async runAISimulation() {
-        const promptInput = document.getElementById('ai-prompt');
-        const prompt = promptInput.value.toLowerCase().trim();
+        const prompt = document.getElementById('ai-prompt').value;
         const responseBox = document.getElementById('ai-response');
-        const hud = document.getElementById('sim-hud');
-        const simWindow = document.querySelector('.simulator-window');
 
         if (!prompt) return;
 
-        // Reset UI
         responseBox.innerHTML = '<span class="typing">Connecting to Chrono-AI...</span>';
-        if (responseBox.classList) responseBox.classList.remove('glitch-text');
-        if (hud) hud.classList.add('hidden');
-        if (simWindow) simWindow.classList.add('glitch-active');
 
-        // Visual Map Glitch (if implemented)
-        if (this.triggerTimelineGlitch) this.triggerTimelineGlitch(true);
-
-        // Simulation Logic
+        // Simulate AI Response (Placeholder for OpenAI integration)
         setTimeout(() => {
-            if (simWindow) simWindow.classList.remove('glitch-active');
-            if (hud) hud.classList.remove('hidden');
-            if (responseBox.classList) responseBox.classList.add('glitch-text');
-
-            const scenario = this.getScenario(prompt);
-
-            // Update HUD with calculated metrics if they exist in UI
-            const divEl = document.getElementById('val-divergence');
-            const stabEl = document.getElementById('val-stability');
-            const fillDiv = document.getElementById('fill-divergence');
-            const fillStab = document.getElementById('fill-stability');
-
-            if (divEl) divEl.textContent = `${scenario.divergence}%`;
-            if (stabEl) stabEl.textContent = `${scenario.stability}%`;
-            if (fillDiv) fillDiv.style.width = `${scenario.divergence}%`;
-            if (fillStab) fillStab.style.width = `${scenario.stability}%`;
-
-            this.typeWriter(scenario.response, responseBox, () => {
-                if (responseBox.classList) responseBox.classList.remove('glitch-text');
-            });
-        }, 2500);
+            const text = `SIMULATION FOR: "${prompt}" - If history were altered in this way, the resulting cultural ripple effects would lead to a ${Math.floor(Math.random() * 20) + 10}% shift in global political stability. Technological progress would likely stall for decades before a sudden renaissance in the late 20th century...`;
+            this.typeWriter(text, responseBox);
+        }, 1500);
     }
 
-    getScenario(prompt) {
-        // Calculated Stats based on prompt length and seed
-        const charSum = prompt.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-        const calcDivergence = Math.min(95, Math.max(15, (charSum % 70) + 15));
-        const calcStability = Math.min(95, Math.max(10, 100 - calcDivergence + (charSum % 10)));
-
-        const scenarios = [
-            {
-                keywords: ['alexandria'],
-                divergence: 82,
-                stability: 38,
-                response: `<b>Immediate Divergence:</b> Library of Alexandria preserved by rapid deployment of Roman naval guards.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Technology:</b> Hero of Alexandria establishes the first steam-engine factory in 150 AD.</li>
-    <li><b>Culture:</b> Global literacy exceeds 95% by 600 AD; the "Dark Ages" never occurs.</li>
-    <li><b>Political:</b> The Ptolemaic-Roman Scientific Coalition becomes the first planetary government.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> Humanity is a Type II civilization, currently colonizing the Andromeda Galaxy.`
-            },
-            {
-                keywords: ['rome', 'roman'],
-                divergence: 68,
-                stability: 52,
-                response: `<b>Immediate Divergence:</b> Julius Caesar survives the Ides of March and implements the "Great Census."
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Political:</b> Administrative automation preserves the Empire for 2,000 years.</li>
-    <li><b>Law:</b> Roman Civil Law remains the sole global legal framework.</li>
-    <li><b>Culture:</b> Latin stays the dominant global language; nation-states never form.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The Eternal Empire spans the globe, currently launching the first Martian colony.`
-            },
-            {
-                keywords: ['napoleon', 'waterloo'],
-                divergence: 54,
-                stability: 65,
-                response: `<b>Immediate Divergence:</b> Napoleon executes a flanking maneuver at Waterloo, securing a decisive victory.
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Political:</b> The "United States of Europe" is established 140 years early.</li>
-    <li><b>Language:</b> French becomes the primary commercial and diplomatic tongue.</li>
-    <li><b>Technology:</b> Metric system adopted globally by 1850; standardized engineering accelerates growth.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> A prosperous, unified global federation with its capital in Paris.`
-            },
-            {
-                keywords: ['india', 'independence', 'freedom', 'colonial'],
-                divergence: 58,
-                stability: 44,
-                response: `<b>Immediate Divergence:</b> The 1947 partition is avoided through a federalist compromise.
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Geopolitical:</b> The Indian Subcontinent remains a single, massive economic powerhouse.</li>
-    <li><b>Cold War:</b> India becomes the third superpower, leading the Non-Aligned Movement.</li>
-    <li><b>Technology:</b> Early focus on indigenous aerospace makes India the leader in moon-mining.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The "Bharatiya Global Bloc" holds the keys to the world's energy supply through thorium fusion.`
-            },
-            {
-                keywords: ['internet', 'computer', 'babbage', 'lovelace'],
-                divergence: 35,
-                stability: 88,
-                response: `<b>Immediate Divergence:</b> Ada Lovelace and Charles Babbage secure full funding for the Analytical Engine.
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Social:</b> Mechanical computation enters the Victorian home by 1880.</li>
-    <li><b>Communication:</b> A global telegraph-based "Steam Internet" forms in 1900.</li>
-    <li><b>War:</b> Data-driven diplomacy prevents the outbreak of World War I.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> A world of high-tech brass and steam, where cybernetics were perfected by the 1950s.`
-            },
-            {
-                keywords: ['dinosaurs', 'asteroid', 'extinction'],
-                divergence: 98,
-                stability: 12,
-                response: `<b>Immediate Divergence:</b> The Chicxulub asteroid narrowly misses Earth 66 million years ago.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Evolution:</b> Non-avian dinosaurs continue to evolve, eventually developing high intelligence.</li>
-    <li><b>Humanity:</b> Mammals remain small, nocturnal creatures; humans never evolve.</li>
-    <li><b>Technology:</b> Advanced tools are crafted from bio-engineered materials rather than metals.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The "Sauropod Coalition" spans Pan-Gaea, monitoring the solar system for rogue celestial bodies.`
-            },
-            {
-                keywords: ['moon landing', 'apollo'],
-                divergence: 25,
-                stability: 95,
-                response: `<b>Immediate Divergence:</b> The Apollo 11 mission establishes a permanent lunar base in 1969.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Space Race:</b> The Cold War shifts entirely to space colonization, avoiding proxy wars on Earth.</li>
-    <li><b>Technology:</b> Commercial nuclear fusion is perfected by 1985 to power off-world colonies.</li>
-    <li><b>Society:</b> A distinct "Lunar Culture" emerges, declaring independence in 2010.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> Earth is primarily a nature reserve; the majority of humanity resides in orbital rings and Martian cities.`
-            },
-            {
-                keywords: ['mona lisa', 'da vinci', 'painting'],
-                divergence: 42,
-                stability: 88,
-                response: `<b>Immediate Divergence:</b> Leonardo da Vinci abandons the Mona Lisa to focus on his "Great Flight Engine."
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Technology:</b> Functional human flight achieved in 1515; Renaissance aeronautics accelerate.</li>
-    <li><b>Art:</b> Abstract expressionism emerges 400 years early as the dominant style.</li>
-    <li><b>Cultural:</b> The Louvre remains a royal palace rather than a global museum.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> Personalized flight is universal; "Sky-Cities" float above the major continents.`
-            },
-            {
-                keywords: ['titanic', 'shipwreck', 'iceberg'],
-                divergence: 38,
-                stability: 92,
-                response: `<b>Immediate Divergence:</b> The Titanic successfully avoids the iceberg due to advanced binocular deployment.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Maritime Law:</b> Maritime safety regulations are delayed by 50 years.</li>
-    <li><b>Migration:</b> A new wave of industrial leaders arrives in NY, accelerating the US economic boom.</li>
-    <li><b>Media:</b> The concept of the "unsinkable" becomes a global cultural dogma.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The White Star Line is the world's largest luxury travel conglomerate.`
-            }
-        ];
-
-        // Find match
-        for (const s of scenarios) {
-            if (s.keywords.some(k => prompt.includes(k))) {
-                return s;
-            }
-        }
-
-        // Dynamic Fallback
-        return {
-            divergence: calcDivergence,
-            stability: calcStability,
-            response: `<b>Immediate Divergence:</b> Neural node detected at prompt vertex: "${prompt}".
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Political:</b> Regional hierarchies shift by ${Math.floor(calcDivergence / 3)}% to accommodate new timeline.</li>
-    <li><b>Cultural:</b> Socio-linguistic drift detected in the subsequent 4 decades.</li>
-    <li><b>Stablity:</b> ${calcStability > 60 ? 'Structural integrity maintained.' : 'Anomalous timeline variance detected.'}</li>
-</ul>
-
-<b>Final Outcome (2026):</b> A timeline defined by ${calcDivergence > 50 ? 'radical sociopolitical realignment' : 'minor structural adjustments'}. Chrono-Sync stable.`
-        };
-    }
-
-    triggerTimelineGlitch(active) {
-        const app = document.getElementById('app');
-        if (active) {
-            app.classList.add('timeline-glitch');
-            setTimeout(() => {
-                app.classList.remove('timeline-glitch');
-            }, 5000);
-        } else {
-            app.classList.remove('timeline-glitch');
-        }
-    }
-
-    typeWriter(text, element, callback) {
+    typeWriter(text, element) {
         element.innerHTML = '';
         let i = 0;
-
-        // Split text into tags and characters to handle HTML properly
-        const parts = text.split(/(<[^>]*>)/g);
-        let partIndex = 0;
-        let charIndex = 0;
-
         const interval = setInterval(() => {
-            if (partIndex >= parts.length) {
-                clearInterval(interval);
-                if (callback) callback();
-                return;
-            }
-
-            const currentPart = parts[partIndex];
-            if (currentPart.startsWith('<')) {
-                element.innerHTML += currentPart;
-                partIndex++;
-            } else {
-                element.innerHTML += currentPart.charAt(charIndex);
-                charIndex++;
-                if (charIndex >= currentPart.length) {
-                    charIndex = 0;
-                    partIndex++;
-                }
-            }
-
-            // Scroll to bottom
-            const window = element.closest('.simulator-window');
-            if (window) window.scrollTop = window.scrollHeight;
-
-        }, 15);
+            element.innerHTML += text.charAt(i);
+            i++;
+            if (i >= text.length) clearInterval(interval);
+        }, 20);
     }
 }
 
@@ -640,6 +406,10 @@ class ChronoSphere {
 window.addEventListener('DOMContentLoaded', () => {
     window.chronosphere = new ChronoSphere();
 
-    // Removed SW registration to permanently fix local localhost caching loops
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .catch(err => console.log('SW registration failed:', err));
+    }
 });
 

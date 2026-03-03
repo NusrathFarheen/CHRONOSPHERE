@@ -1,0 +1,14 @@
+dc97da1 chore: full revert to v6 working local state per user request
+5423235 chore: revert v8 and v9 performance experiments
+db0a143 fix: total service worker eradication to fix local and remote cache loops
+d538dae fix: v8 hard reset and curated scenarios expansion
+8d03628 perf: refactor initialization and optimize CSS performance
+370dc81 fix: add d3 availability guard and bump to v6
+f2d684d fix: aggressive cache-busting and D3 CDN switch v5
+2862b25 fix: update simulator button ID and bump cache version to v4
+400f6ad Final Polish: Fixed Map Rendering, SVG paths, Marker properties, and Loader removal
+9f432a3 Definitive Intelligence Upgrade: Butterfly Effect Engine and documentation polish live
+d24b508 Intelligent Scenario Engine: High-perspective historical divergence logic live
+8244bea Final Evolution: High-fidelity 'What If?' Simulator, CRT effects, and modular CSS integration
+a868c1b Complete ChronoSphere Integration: 100+ events, PWA support, SEO tags, and Premium UI
+8ced385 Initial commit: Immersive UI/UX Overhaul
