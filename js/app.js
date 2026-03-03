@@ -182,6 +182,17 @@ class ChronoSphere {
         if (uiToggle) {
             uiToggle.addEventListener('click', () => this.toggleUI());
         }
+
+        // Divergence Templates
+        document.querySelectorAll('.template-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const promptArea = document.getElementById('ai-prompt');
+                if (promptArea) {
+                    promptArea.value = btn.dataset.query;
+                    this.runAISimulation();
+                }
+            });
+        });
     }
 
 
@@ -379,16 +390,58 @@ class ChronoSphere {
     async runAISimulation() {
         const prompt = document.getElementById('ai-prompt').value;
         const responseBox = document.getElementById('ai-response');
+        const hud = document.getElementById('sim-hud');
+        const simWindow = document.querySelector('.simulator-window');
 
         if (!prompt) return;
 
+        // Reset UI
         responseBox.innerHTML = '<span class="typing">Connecting to Chrono-AI...</span>';
+        hud.classList.add('hidden');
+        simWindow.classList.add('glitch-active');
 
-        // Simulate AI Response (Placeholder for OpenAI integration)
+        // Visual Map Glitch
+        this.triggerTimelineGlitch(true);
+
+        // Simulate AI Response Calculation
         setTimeout(() => {
-            const text = `SIMULATION FOR: "${prompt}" - If history were altered in this way, the resulting cultural ripple effects would lead to a ${Math.floor(Math.random() * 20) + 10}% shift in global political stability. Technological progress would likely stall for decades before a sudden renaissance in the late 20th century...`;
+            simWindow.classList.remove('glitch-active');
+            hud.classList.remove('hidden');
+
+            const divergence = Math.floor(Math.random() * 60) + 20;
+            const stability = 100 - Math.floor(divergence / 2);
+
+            // Update HUD
+            document.getElementById('val-divergence').textContent = `${divergence}%`;
+            document.getElementById('val-stability').textContent = `${stability}%`;
+            document.getElementById('fill-divergence').style.width = `${divergence}%`;
+            document.getElementById('fill-stability').style.width = `${stability}%`;
+
+            const text = `SIMULATION DATA: Chrono-Sync established at ${divergence}% divergence. For prompt: "${prompt}".
+
+The primary cascade effect would result in a ${stability}% stability rating for the current timeline.
+
+KEY RIPPLE EFFECTS:
+• Cultural Shift: ${divergence > 50 ? 'Severe infrastructure realignment' : 'Minor sociopolitical adjustments'}.
+• Technological Plateau: Progress shifts by ${Math.floor(divergence / 10)} decades.
+• Global Stability: ${stability < 60 ? 'CRITICAL INSTABILITY' : 'Sustainable divergence'}.
+
+Divergence analysis complete. Outputting neural projection...`;
+
             this.typeWriter(text, responseBox);
-        }, 1500);
+        }, 2000);
+    }
+
+    triggerTimelineGlitch(active) {
+        const app = document.getElementById('app');
+        if (active) {
+            app.classList.add('timeline-glitch');
+            setTimeout(() => {
+                app.classList.remove('timeline-glitch');
+            }, 5000); // Effect durations
+        } else {
+            app.classList.remove('timeline-glitch');
+        }
     }
 
     typeWriter(text, element) {

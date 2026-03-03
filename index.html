@@ -34,8 +34,8 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&family=Roboto+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <!-- Main Stylesheet -->
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/simulator.css">
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
 </head>
@@ -137,12 +137,42 @@
                     <h1>“What If?” Simulation Suite</h1>
                     <p>Enter a historical divergence point to calculate secondary ripple effects.</p>
                 </div>
+
+                <div class="sim-templates">
+                    <button class="template-btn" data-query="What if the Library of Alexandria never burned?">📚 Library
+                        of Alexandria</button>
+                    <button class="template-btn" data-query="What if the Roman Empire never fell?">🏛️ Roman
+                        Empire</button>
+                    <button class="template-btn" data-query="What if the Internet was invented in 1850?">📟 Victorian
+                        Internet</button>
+                    <button class="template-btn" data-query="What if Napoleon won at Waterloo?">🦅 Napoleon
+                        Victory</button>
+                </div>
+
                 <div class="simulator-body">
                     <div class="input-area">
                         <textarea id="ai-prompt"
                             placeholder="Example: What if the Library of Alexandria never burned?"></textarea>
                         <button id="run-simulation" class="btn-simulate-large">Initiate Chrono-Sync</button>
                     </div>
+
+                    <div id="sim-hud" class="sim-metrics hidden">
+                        <div class="metric-item">
+                            <div class="metric-label">Divergence Factor</div>
+                            <div class="metric-value" id="val-divergence">0%</div>
+                            <div class="metric-gauge">
+                                <div class="gauge-fill" id="fill-divergence"></div>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-label">Timeline Stability</div>
+                            <div class="metric-value" id="val-stability">100%</div>
+                            <div class="metric-gauge">
+                                <div class="gauge-fill" id="fill-stability"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div id="ai-response" class="simulation-output">
                         <p class="output-placeholder">Pending Neural Input...</p>
                     </div>
