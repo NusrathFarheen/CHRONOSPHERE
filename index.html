@@ -23,6 +23,8 @@
     <!-- Leaflet CSS & JS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- D3.js for Geoprojection -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <!-- GSAP for Animations -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -43,7 +45,7 @@
 <body class="dark-theme">
     <div id="app">
         <!-- Main Map Container -->
-        <div id="map"></div>
+        <div id="map"><svg id="map-svg"></svg></div>
 
         <!-- Header / Logo -->
         <!-- Slim HUD Header -->

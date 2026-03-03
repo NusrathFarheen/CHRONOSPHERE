@@ -16,6 +16,14 @@ class ChronoSphere {
         await this.loadMap();
         await this.loadEvents();
         this.setupEventListeners();
+        this.hideLoader();
+    }
+
+    hideLoader() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+            gsap.to(loader, { opacity: 0, duration: 0.8, onComplete: () => loader.style.display = 'none' });
+        }
     }
 
     async loadMap() {
@@ -61,7 +69,9 @@ class ChronoSphere {
 
     renderMarkers() {
         this.events.forEach((event, index) => {
-            const [x, y] = this.projection([event.lng, event.lat]);
+            // JSON uses [lng, lat] order for coordinates
+            const [lng, lat] = event.coordinates;
+            const [x, y] = this.projection([lng, lat]);
 
             const marker = document.createElement('div');
             marker.className = `marker ${event.type}`;
@@ -78,31 +88,37 @@ class ChronoSphere {
     }
 
     showOverlay(event) {
-        const overlay = document.getElementById('event-overlay');
-        const content = document.getElementById('overlay-content');
+        const overlay = document.getElementById('floating-card');
+
+        // Update elements
+        document.getElementById('card-badge').textContent = event.type;
+        document.getElementById('card-badge').className = `badge ${event.type}`;
+        document.getElementById('card-year').textContent = event.year;
+        document.getElementById('card-title').textContent = event.title;
+        document.getElementById('card-description').textContent = event.description;
+
+        const gallery = document.getElementById('card-images');
+        gallery.innerHTML = '';
+        if (event.images && event.images.length > 0) {
+            event.images.forEach(img => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'image-wrapper';
+                wrapper.innerHTML = `<img src="${img.url}" alt="${img.caption}">`;
+                gallery.appendChild(wrapper);
+            });
+        }
+
+        const learnMore = document.getElementById('card-learn-more');
+        learnMore.onclick = () => window.open(event.wikipedia_url, '_blank');
 
         overlay.classList.remove('hidden');
-        content.innerHTML = `
-            <div class="event-detail">
-                <div class="event-image-container">
-                    <img src="${event.image}" alt="${event.event}" class="event-main-image">
-                    <div class="intensity-badge">Intensity: ${event.intensity}</div>
-                </div>
-                <div class="event-info">
-                    <div class="event-meta">
-                        <span>${event.year}</span> • <span>${event.location}</span>
-                    </div>
-                    <h2>${event.event}</h2>
-                    <p>${event.description}</p>
-                    <a href="${event.learnMore}" target="_blank" class="learn-more-btn">Recordings & Artifacts</a>
-                </div>
-            </div>
-        `;
+        document.body.classList.add('event-active');
     }
 
     setupEventListeners() {
-        document.getElementById('close-overlay').addEventListener('click', () => {
-            document.getElementById('event-overlay').classList.add('hidden');
+        document.getElementById('close-card').addEventListener('click', () => {
+            document.getElementById('floating-card').classList.add('hidden');
+            document.body.classList.remove('event-active');
         });
 
         const simBtn = document.getElementById('open-simulator');
@@ -115,7 +131,7 @@ class ChronoSphere {
             closeSim.addEventListener('click', () => this.toggleSimulator(false));
         }
 
-        const syncBtn = document.getElementById('run-sim');
+        const syncBtn = document.getElementById('run-simulation');
         if (syncBtn) {
             syncBtn.addEventListener('click', () => this.runAISimulation());
         }

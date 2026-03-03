@@ -10,7 +10,8 @@ const ASSETS = [
     './data/americas.json',
     './data/europe.json',
     './data/oceania.json',
-    './data/global.json'
+    './data/global.json',
+    'https://d3js.org/d3.v7.min.js'
 ];
 
 // Install: Cache all assets
