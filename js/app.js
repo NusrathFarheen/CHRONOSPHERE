@@ -388,7 +388,8 @@ class ChronoSphere {
 
 
     async runAISimulation() {
-        const prompt = document.getElementById('ai-prompt').value;
+        const promptInput = document.getElementById('ai-prompt');
+        const prompt = promptInput.value.toLowerCase();
         const responseBox = document.getElementById('ai-response');
         const hud = document.getElementById('sim-hud');
         const simWindow = document.querySelector('.simulator-window');
@@ -403,33 +404,131 @@ class ChronoSphere {
         // Visual Map Glitch
         this.triggerTimelineGlitch(true);
 
-        // Simulate AI Response Calculation
+        // Simulation Logic
         setTimeout(() => {
             simWindow.classList.remove('glitch-active');
             hud.classList.remove('hidden');
 
-            const divergence = Math.floor(Math.random() * 60) + 20;
-            const stability = 100 - Math.floor(divergence / 2);
+            const scenario = this.getScenario(prompt);
 
-            // Update HUD
-            document.getElementById('val-divergence').textContent = `${divergence}%`;
-            document.getElementById('val-stability').textContent = `${stability}%`;
-            document.getElementById('fill-divergence').style.width = `${divergence}%`;
-            document.getElementById('fill-stability').style.width = `${stability}%`;
+            // Update HUD with scenario metrics
+            document.getElementById('val-divergence').textContent = `${scenario.divergence}%`;
+            document.getElementById('val-stability').textContent = `${scenario.stability}%`;
+            document.getElementById('fill-divergence').style.width = `${scenario.divergence}%`;
+            document.getElementById('fill-stability').style.width = `${scenario.stability}%`;
 
-            const text = `SIMULATION DATA: Chrono-Sync established at ${divergence}% divergence. For prompt: "${prompt}".
+            this.typeWriter(scenario.response, responseBox);
+        }, 2000);
+    }
 
-The primary cascade effect would result in a ${stability}% stability rating for the current timeline.
+    getScenario(prompt) {
+        const scenarios = [
+            {
+                keywords: ['alexandria'],
+                divergence: 78,
+                stability: 42,
+                response: `SIMULATION DATA: Alexandria Safeguard Protocol.
+                
+If the Library never burned, the "Dark Ages" transition is bypassed. Knowledge of steam power and advanced calculus is stabilized by 400 AD. 
 
 KEY RIPPLE EFFECTS:
-• Cultural Shift: ${divergence > 50 ? 'Severe infrastructure realignment' : 'Minor sociopolitical adjustments'}.
-• Technological Plateau: Progress shifts by ${Math.floor(divergence / 10)} decades.
-• Global Stability: ${stability < 60 ? 'CRITICAL INSTABILITY' : 'Sustainable divergence'}.
+• Industrialization: Occurs 1,400 years early. The first orbital satellite is launched in 750 AD.
+• Cultural: Global literacy reaches 90% by the 10th century. Greek remains the scientific lingua franca.
+• Stability: CRITICAL. Rapid expansion leads to resource depletion before planetary management is understood.
 
-Divergence analysis complete. Outputting neural projection...`;
+Timeline convergence: High-Tech Antiquity.`
+            },
+            {
+                keywords: ['rome', 'roman'],
+                divergence: 65,
+                stability: 55,
+                response: `SIMULATION DATA: Pax Romana Perpetual.
 
-            this.typeWriter(text, responseBox);
-        }, 2000);
+The Roman Empire avoids the 5th-century collapse via administrative decentralization and early adoption of printing.
+
+KEY RIPPLE EFFECTS:
+• Geopolitical: A unified European/Mediterranean state persists into the 20th century.
+• Legal: Civil law is standardized globally. Modern nation-states never form.
+• Stability: MODERATE. Stagnation in social reform leads to internal friction, but external threats are non-existent.`
+            },
+            {
+                keywords: ['napoleon', 'waterloo'],
+                divergence: 45,
+                stability: 72,
+                response: `SIMULATION DATA: Napoleonic Hegemony.
+
+Victory at Waterloo preserves the Continental System, forcing a French-led European Union by 1850.
+
+KEY RIPPLE EFFECTS:
+• Language: French becomes the primary global trade language.
+• Political: The "Concert of Europe" is replaced by a single imperial oversight.
+• Stability: SUSTAINABLE. Britain remains a powerful naval isolationist, creating a bipolar world order.`
+            },
+            {
+                keywords: ['india', 'independence', 'freedom'],
+                divergence: 58,
+                stability: 61,
+                response: `SIMULATION DATA: Extended Colonialism Divergence.
+
+If India never gained independence in 1947, the global decolonization movement stalls, leading to a "Cold War" defined by Imperial vs Sovereign interests.
+
+KEY RIPPLE EFFECTS:
+• Global: The Commonwealth remains a formal, unified political bloc. 
+• Economics: Asian markets develop under strictly controlled extractive models.
+• Stability: VOLATILE. Guerilla movements across Africa and SE Asia prevent global peace well into the 1980s.`
+            },
+            {
+                keywords: ['internet', 'computer', 'technology'],
+                divergence: 32,
+                stability: 85,
+                response: `SIMULATION DATA: Early Silicon Awakening.
+
+If Babbage’s Engine was fully funded in 1840, information theory matures during the Victorian Era.
+
+KEY RIPPLE EFFECTS:
+• Social: Victorian "Steam-Computers" create an early global oversight network.
+• War: Calculations of military logistics prevent World War I through optimized deterrence.
+• Stability: HIGH. The gradual crawl of tech allows for better societal adaptation than the 20th-century boom.`
+            },
+            {
+                keywords: ['cleopatra'],
+                divergence: 24,
+                stability: 88,
+                response: `SIMULATION DATA: Ptolemaic Pivot.
+
+Discovery of Cleopatra's actual strategic directives leads to a revised understanding of Roman-Egyptian diplomacy. 
+
+KEY RIPPLE EFFECTS:
+• Archaeological: Early discovery triggers a "Classical Renaissance" in the 1800s.
+• Religion: Greater syncretism between Mediterranean faiths.
+• Stability: OPTIMAL. Minor adjustments to the historical record, but no major structural collapse.`
+            }
+        ];
+
+        // Find match
+        for (const s of scenarios) {
+            if (s.keywords.some(k => prompt.includes(k))) {
+                return s;
+            }
+        }
+
+        // Fallback Perspective
+        const div = Math.floor(Math.random() * 30) + 15;
+        const stab = 100 - Math.floor(div * 1.5);
+        return {
+            divergence: div,
+            stability: stab,
+            response: `SIMULATION DATA: General Divergence Protocol. Prompt: "${prompt}".
+
+The ripple effects of this change create a ${div}% shift in the core timeline, primarily affecting local regional hierarchies.
+
+KEY RIPPLE EFFECTS:
+• Socio-Political: Power structures shift to accommodate the new divergence vertex.
+• Temporal: Minor butterfly effects detected in the following 50 years.
+• Stability: ${stab > 70 ? 'STABLE' : 'UNPREDICTABLE'}. Chrono-Sync holding.
+
+Further input required for deep-node analysis.`
+        };
     }
 
     triggerTimelineGlitch(active) {
