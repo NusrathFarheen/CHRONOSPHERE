@@ -157,3 +157,70 @@
     border-color: var(--accent);
     color: #fff;
 }
+
+/* Butterfly Effect Formatting */
+.ai-response b {
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--accent-glow);
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.ai-response ul {
+    list-style: none;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ai-response li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.ai-response li::before {
+    content: '►';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+    top: 3px;
+}
+
+/* Glitch Text Effect while typing */
+.ai-response.glitch-text {
+    animation: text-shake-micro 0.3s infinite;
+}
+
+@keyframes text-shake-micro {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-1.5px, 1.5px);
+    }
+
+    40% {
+        transform: translate(1.5px, -1.5px);
+        filter: hue-rotate(15deg) brightness(1.1);
+    }
+
+    60% {
+        transform: translate(-1.5px, -1.5px);
+    }
+
+    80% {
+        transform: translate(1.5px, 1.5px);
+        filter: hue-rotate(-15deg);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
