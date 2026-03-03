@@ -1,0 +1,25 @@
+[
+    {
+        "id": 50,
+        "country": "Global",
+        "continent": "Global",
+        "title": "The Moon Landing",
+        "year": 1969,
+        "type": "science",
+        "description": "NASA's Apollo 11 mission landed the first humans on the Moon, a monumental achievement for science and humanity.",
+        "casualties": null,
+        "intensity_score": 0.6,
+        "coordinates": [
+            28.5721,
+            -80.6480
+        ],
+        "images": [
+            {
+                "url": "assets/images/moon_landing_1.jpg",
+                "caption": "Buzz Aldrin on the Moon",
+                "year": 1969,
+                "credit": "NASA"
+            }
+        ]
+    }
+]

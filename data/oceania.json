@@ -1,0 +1,25 @@
+[
+    {
+        "id": 40,
+        "country": "Australia",
+        "continent": "Oceania",
+        "title": "Eureka Stockade",
+        "year": 1854,
+        "type": "revolution",
+        "description": "A rebellion of gold miners against colonial authority, widely regarded as a key event in the development of Australian democracy.",
+        "casualties": "35+",
+        "intensity_score": 0.65,
+        "coordinates": [
+            -37.5622,
+            143.8503
+        ],
+        "images": [
+            {
+                "url": "assets/images/eureka_stockade_1.jpg",
+                "caption": "The Eureka Flag",
+                "year": 1854,
+                "credit": "Ballarat Fine Art Gallery"
+            }
+        ]
+    }
+]

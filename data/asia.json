@@ -1,0 +1,54 @@
+[
+    {
+        "id": 10,
+        "country": "Japan",
+        "continent": "Asia",
+        "title": "Meiji Restoration",
+        "year": 1868,
+        "type": "revolution",
+        "description": "A political revolution that restored practical imperial rule to Japan, leading to enormous changes in its political and social structure.",
+        "casualties": null,
+        "intensity_score": 0.7,
+        "coordinates": [
+            35.6895,
+            139.6917
+        ],
+        "images": [
+            {
+                "url": "assets/images/meiji_restoration_1.jpg",
+                "caption": "Imperial Court in Edo",
+                "year": 1868,
+                "credit": "Imperial Archives"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "country": "China",
+        "continent": "Asia",
+        "title": "Opium Wars Begin",
+        "year": 1839,
+        "type": "war",
+        "description": "Conflicts between the Qing Dynasty and Great Britain over trade and sovereignty, significantly weakening imperial China.",
+        "casualties": "20,000+",
+        "intensity_score": 0.85,
+        "coordinates": [
+            39.9042,
+            116.4074
+        ],
+        "images": [
+            {
+                "url": "assets/images/opium_war_1.jpg",
+                "caption": "Battle of Chuenpi",
+                "year": 1841,
+                "credit": "National Maritime Museum"
+            },
+            {
+                "url": "assets/images/opium_war_2.jpg",
+                "caption": "Treaty of Nanjing",
+                "year": 1842,
+                "credit": "Public Domain"
+            }
+        ]
+    }
+]

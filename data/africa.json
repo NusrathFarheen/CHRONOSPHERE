@@ -1,0 +1,54 @@
+[
+    {
+        "id": 20,
+        "country": "Ethiopia",
+        "continent": "Africa",
+        "title": "Battle of Adwa",
+        "year": 1896,
+        "type": "war",
+        "description": "Ethiopian forces defeated the Italian colonial army, securing Ethiopia's sovereignty and making it a symbol of African resistance.",
+        "casualties": "15,000+",
+        "intensity_score": 0.85,
+        "coordinates": [
+            14.1645,
+            38.8953
+        ],
+        "images": [
+            {
+                "url": "assets/images/adwa_1.jpg",
+                "caption": "Emperor Menelik II at Adwa",
+                "year": 1896,
+                "credit": "National Museum of Ethiopia"
+            },
+            {
+                "url": "assets/images/adwa_2.jpg",
+                "caption": "Victory Proclamation",
+                "year": 1896,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "country": "South Africa",
+        "continent": "Africa",
+        "title": "Anglo-Zulu War",
+        "year": 1879,
+        "type": "war",
+        "description": "Conflict between the British Empire and the Zulu Kingdom, famous for the Battle of Isandlwana and Rorke's Drift.",
+        "casualties": "10,000+",
+        "intensity_score": 0.8,
+        "coordinates": [
+            -28.3582,
+            30.6385
+        ],
+        "images": [
+            {
+                "url": "assets/images/zulu_war_1.jpg",
+                "caption": "Battle of Isandlwana",
+                "year": 1879,
+                "credit": "Historical Archives"
+            }
+        ]
+    }
+]

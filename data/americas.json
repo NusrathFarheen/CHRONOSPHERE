@@ -1,0 +1,48 @@
+[
+    {
+        "id": 30,
+        "country": "United States",
+        "continent": "North America",
+        "title": "Declaration of Independence",
+        "year": 1776,
+        "type": "revolution",
+        "description": "The Continental Congress adopted the Declaration of Independence, severing political ties with Great Britain.",
+        "casualties": null,
+        "intensity_score": 0.8,
+        "coordinates": [
+            39.9489,
+            -75.1500
+        ],
+        "images": [
+            {
+                "url": "assets/images/declaration_independence_1.jpg",
+                "caption": "Signing of the Declaration",
+                "year": 1776,
+                "credit": "National Archives"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "country": "Colombia",
+        "continent": "South America",
+        "title": "Gran Colombia Independence",
+        "year": 1819,
+        "type": "revolution",
+        "description": "Simón Bolívar's forces defeated the Spanish, leading to the creation of Gran Colombia and the liberation of northern South America.",
+        "casualties": "5,000+",
+        "intensity_score": 0.75,
+        "coordinates": [
+            4.7110,
+            -74.0721
+        ],
+        "images": [
+            {
+                "url": "assets/images/bolivar_victory_1.jpg",
+                "caption": "Simón Bolívar in Bogotá",
+                "year": 1819,
+                "credit": "Public Domain"
+            }
+        ]
+    }
+]

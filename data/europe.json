@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "country": "Italy",
+        "continent": "Europe",
+        "title": "Renaissance Peak",
+        "year": 1500,
+        "type": "culture",
+        "description": "The height of the Italian Renaissance, marked by the works of Leonardo da Vinci and Michelangelo, fundamentally changing art and science.",
+        "casualties": null,
+        "intensity_score": 0.4,
+        "coordinates": [
+            41.9028,
+            12.4964
+        ],
+        "images": [
+            {
+                "url": "assets/images/renaissance_1.jpg",
+                "caption": "Renaissance Masterpiece",
+                "year": 1503,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "country": "France",
+        "continent": "Europe",
+        "title": "The French Revolution",
+        "year": 1789,
+        "type": "revolution",
+        "description": "The storming of the Bastille marked the beginning of a period of radical social and political upheaval in France.",
+        "casualties": "40,000 (The Terror)",
+        "intensity_score": 0.8,
+        "coordinates": [
+            48.8566,
+            2.3522
+        ],
+        "images": [
+            {
+                "url": "assets/images/french_revolution_1.jpg",
+                "caption": "The Tennis Court Oath",
+                "year": 1789,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "country": "Germany",
+        "continent": "Europe",
+        "title": "World War II Begins",
+        "year": 1939,
+        "type": "war",
+        "description": "The invasion of Poland by Nazi Germany marked the start of the deadliest conflict in human history.",
+        "casualties": "75 Million+",
+        "intensity_score": 1.0,
+        "coordinates": [
+            52.5200,
+            13.4050
+        ],
+        "images": [
+            {
+                "url": "assets/images/wwii_germany_1.jpg",
+                "caption": "Berlin in Ruin",
+                "year": 1945,
+                "credit": "Historical Archives"
+            },
+            {
+                "url": "assets/images/wwii_germany_2.jpg",
+                "caption": "Surrender of Germany",
+                "year": 1945,
+                "credit": "Public Domain"
+            }
+        ]
+    }
+]
