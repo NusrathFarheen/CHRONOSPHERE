@@ -7,8 +7,10 @@ class ChronoSphere {
     constructor() {
         this.currentYear = 1500;
         this.historyData = [];
+        this.arcsData = [];  // Dedicated arc narrative data
         this.map = null;
         this.markers = [];
+        this.arcs = []; // Tracking array for drawn idea contagion arcs
         this.activeFilters = ['war', 'revolution', 'culture', 'science'];
         this.heatmapEnabled = false;
         this.uiVisible = true;
@@ -30,9 +32,12 @@ class ChronoSphere {
             const dataPromises = continents.map(c =>
                 fetch(`data/${c}.json`).then(r => r.ok ? r.json() : [])
             );
-            const results = await Promise.all(dataPromises);
+            const [results, arcsResult] = await Promise.all([
+                Promise.all(dataPromises),
+                fetch('data/arcs.json').then(r => r.ok ? r.json() : [])
+            ]);
             this.historyData = results.flat();
-
+            this.arcsData = arcsResult;
 
             // 2. Initialize Map
             this.initMap();
@@ -199,6 +204,15 @@ class ChronoSphere {
 
 
 
+        // Arc Popup Close
+        const arcPopupClose = document.getElementById('arc-popup-close');
+        if (arcPopupClose) {
+            arcPopupClose.addEventListener('click', () => {
+                const popup = document.getElementById('arc-popup');
+                if (popup) popup.classList.add('hidden');
+            });
+        }
+
         // UI Toggle
         const uiToggle = document.getElementById('toggle-ui');
         if (uiToggle) {
@@ -274,11 +288,14 @@ class ChronoSphere {
 
 
     updateMapState() {
-        // 1. Remove existing markers
+        // 1. Remove existing markers and arcs
         this.markers.forEach(m => this.map.removeLayer(m));
         this.markers = [];
 
-        // 2. Filter data by year and category (Show only events from last 100 years to reduce clutter)
+        this.arcs.forEach(a => this.map.removeLayer(a));
+        this.arcs = [];
+
+        // 2. Filter data by year and category
         const filteredData = this.historyData.filter(event =>
             event.year <= this.currentYear &&
             this.activeFilters.includes(event.type)
@@ -309,6 +326,131 @@ class ChronoSphere {
 
             this.markers.push(marker);
         });
+
+        // 4. Draw Idea Contagion Arcs
+        filteredData.forEach(event => {
+            if (event.connections && event.connections.length > 0) {
+                event.connections.forEach(targetId => {
+                    const targetEvent = filteredData.find(e => e.id === targetId);
+                    if (targetEvent) {
+                        const start = L.latLng(event.coordinates[0], event.coordinates[1]);
+                        const end = L.latLng(targetEvent.coordinates[0], targetEvent.coordinates[1]);
+
+                        // Generate smooth Bezier curve points
+                        const curvePoints = this.getBezierCurve(start, end);
+
+                        // Create and style the glowing polyline
+                        const arc = L.polyline(curvePoints, {
+                            className: `idea-arc ${event.type}`,
+                            snakingSpeed: 200
+                        });
+
+                        this.map.addLayer(arc);
+                        this.arcs.push(arc);
+                    }
+                });
+            }
+        });
+
+        // 5. Draw dedicated Idea Contagion arcs from arcs.json
+        this.renderContagionArcs();
+
+        this.updateEraLabel();
+    }
+
+    // Mathematical Helper: Generate points for a quadratic Bezier curve over the map
+    getBezierCurve(latlng1, latlng2) {
+        const points = [];
+        const numPoints = 50;
+
+        // Calculate midpoint
+        const midLat = (latlng1.lat + latlng2.lat) / 2;
+        const midLng = (latlng1.lng + latlng2.lng) / 2;
+
+        // Calculate distance to determine curve height
+        const dx = latlng2.lng - latlng1.lng;
+        const dy = latlng2.lat - latlng1.lat;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Control point: Perpendicular offset from midpoint
+        // The further apart the points, the higher the arc
+        const offset = distance * 0.25;
+
+        // Perpendicular vector
+        const perpX = -dy / distance;
+        const perpY = dx / distance;
+
+        const controlLat = midLat + perpY * offset;
+        const controlLng = midLng + perpX * offset;
+
+        // Generate points along the quadratic curve
+        for (let i = 0; i <= numPoints; i++) {
+            const t = i / numPoints;
+            const u = 1 - t;
+
+            const lat = (u * u * latlng1.lat) + (2 * u * t * controlLat) + (t * t * latlng2.lat);
+            const lng = (u * u * latlng1.lng) + (2 * u * t * controlLng) + (t * t * latlng2.lng);
+
+            points.push([lat, lng]);
+        }
+
+        return points;
+    }
+
+    // Render arcs from the dedicated arcs.json data
+    renderContagionArcs() {
+        if (!this.arcsData || this.arcsData.length === 0) return;
+
+        this.arcsData.forEach(arcDef => {
+            // Only show arc if the year has passed and its type is in active filters
+            if (arcDef.year > this.currentYear) return;
+            if (!this.activeFilters.includes(arcDef.type)) return;
+
+            const origin = L.latLng(arcDef.origin.coordinates[0], arcDef.origin.coordinates[1]);
+
+            arcDef.targets.forEach(target => {
+                const dest = L.latLng(target.coordinates[0], target.coordinates[1]);
+                const curvePoints = this.getBezierCurve(origin, dest);
+
+                const arc = L.polyline(curvePoints, {
+                    className: `idea-arc ${arcDef.type}`
+                });
+
+                arc.on('click', (e) => {
+                    L.DomEvent.stopPropagation(e);
+                    this.showArcPopup(arcDef);
+                });
+
+                this.map.addLayer(arc);
+                this.arcs.push(arc);
+            });
+        });
+    }
+
+    // Show the arc narrative popup panel
+    showArcPopup(arcDef) {
+        const popup = document.getElementById('arc-popup');
+        const titleEl = document.getElementById('arc-popup-title');
+        const bodyEl = document.getElementById('arc-popup-body');
+        const typeBar = document.getElementById('arc-popup-type-bar');
+
+        if (!popup || !titleEl || !bodyEl) return;
+
+        // Set content
+        titleEl.textContent = arcDef.title;
+        bodyEl.textContent = arcDef.narrative;
+
+        // Style the type bar color matching the arc type
+        const typeColors = {
+            science: 'var(--science)',
+            culture: 'var(--culture)',
+            revolution: 'var(--revolution)',
+            war: 'var(--war)'
+        };
+        typeBar.style.background = typeColors[arcDef.type] || 'var(--accent)';
+
+        // Show the popup
+        popup.classList.remove('hidden');
     }
 
     showEventDetails(event) {

@@ -105,6 +105,10 @@
             8.2473
         ],
         "wikipedia_url": "https://en.wikipedia.org/wiki/Gutenberg_Bible",
+        "connections": [
+            315,
+            316
+        ],
         "images": [
             {
                 "url": "assets/images/events/europe/Gutenberg Bible (1455).png",
@@ -340,6 +344,52 @@
                 "url": "assets/images/events/europe/Russian Revolution (1917).png",
                 "caption": "Lenin speaking in Moscow",
                 "year": 1917,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 315,
+        "country": "Italy",
+        "continent": "Europe",
+        "title": "The High Renaissance",
+        "year": 1500,
+        "type": "culture",
+        "description": "Centered in Florence and Rome, an era of exceptional artistic production driven by Leonardo, Michelangelo, and Raphael, directly fueled by the mass distribution of ancient texts from the new printing presses.",
+        "intensity_score": 0.9,
+        "coordinates": [
+            43.7696,
+            11.2558
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/High_Renaissance",
+        "images": [
+            {
+                "url": "assets/images/events/europe/High Renaissance (1500).png",
+                "caption": "The School of Athens by Raphael",
+                "year": 1500,
+                "credit": "Public Domain"
+            }
+        ]
+    },
+    {
+        "id": 316,
+        "country": "Germany",
+        "continent": "Europe",
+        "title": "The Protestant Reformation",
+        "year": 1517,
+        "type": "culture",
+        "description": "Martin Luther's Ninety-five Theses sparked a massive religious upheaval. His ideas spread like wildfire across Europe precisely because Gutenberg's printing press allowed his translated Bibles to be mass-produced.",
+        "intensity_score": 0.95,
+        "coordinates": [
+            51.8687,
+            12.6483
+        ],
+        "wikipedia_url": "https://en.wikipedia.org/wiki/Reformation",
+        "images": [
+            {
+                "url": "assets/images/events/europe/Protestant Reformation (1517).png",
+                "caption": "Martin Luther's Theses",
+                "year": 1517,
                 "credit": "Public Domain"
             }
         ]
