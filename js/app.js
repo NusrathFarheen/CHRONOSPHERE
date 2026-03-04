@@ -12,6 +12,8 @@ class ChronoSphere {
         this.activeFilters = ['war', 'revolution', 'culture', 'science'];
         this.heatmapEnabled = false;
         this.uiVisible = true;
+        this.isPlaying = false;
+        this.playInterval = null;
 
         this.init();
     }
@@ -101,8 +103,14 @@ class ChronoSphere {
         const slider = document.getElementById('timeline-slider');
         if (slider) {
             slider.addEventListener('input', (e) => {
+                if (this.isPlaying) this.toggleAutoplay();
                 this.updateYear(parseInt(e.target.value));
             });
+        }
+
+        const autoplayBtn = document.getElementById('autoplay-btn');
+        if (autoplayBtn) {
+            autoplayBtn.addEventListener('click', () => this.toggleAutoplay());
         }
 
         // Filter chips
@@ -161,6 +169,18 @@ class ChronoSphere {
             navSim.addEventListener('click', () => simOverlay.classList.remove('hidden'));
         }
 
+        // Template Buttons
+        document.querySelectorAll('.template-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const query = e.target.dataset.query;
+                const promptInput = document.getElementById('ai-prompt');
+                if (promptInput && query) {
+                    promptInput.value = query;
+                    this.runAISimulation();
+                }
+            });
+        });
+
         // AI Processor for Simulation
         const runSim = document.getElementById('run-simulation');
         if (runSim) {
@@ -177,10 +197,39 @@ class ChronoSphere {
             });
         }
 
+
+
         // UI Toggle
         const uiToggle = document.getElementById('toggle-ui');
         if (uiToggle) {
             uiToggle.addEventListener('click', () => this.toggleUI());
+        }
+    }
+
+    toggleAutoplay() {
+        this.isPlaying = !this.isPlaying;
+        const btn = document.getElementById('autoplay-btn');
+        const slider = document.getElementById('timeline-slider');
+
+        if (btn) {
+            const playIcon = btn.querySelector('.icon-play');
+            const pauseIcon = btn.querySelector('.icon-pause');
+
+            if (this.isPlaying) {
+                if (playIcon) playIcon.style.display = 'none';
+                if (pauseIcon) pauseIcon.style.display = 'block';
+
+                this.playInterval = setInterval(() => {
+                    let nextYear = this.currentYear + 2;
+                    if (nextYear > 2025) nextYear = 1500;
+                    if (slider) slider.value = nextYear;
+                    this.updateYear(nextYear);
+                }, 300);
+            } else {
+                if (playIcon) playIcon.style.display = 'block';
+                if (pauseIcon) pauseIcon.style.display = 'none';
+                clearInterval(this.playInterval);
+            }
         }
     }
 
@@ -377,13 +426,17 @@ class ChronoSphere {
 
 
     async runAISimulation() {
+        if (this.isSimulating) return;
+
         const promptInput = document.getElementById('ai-prompt');
-        const prompt = promptInput.value.toLowerCase().trim();
+        const prompt = promptInput.value.trim();
         const responseBox = document.getElementById('ai-response');
         const hud = document.getElementById('sim-hud');
         const simWindow = document.querySelector('.simulator-window');
 
         if (!prompt) return;
+
+        this.isSimulating = true;
 
         // Reset UI
         responseBox.innerHTML = '<span class="typing">Connecting to Chrono-AI...</span>';
@@ -394,13 +447,23 @@ class ChronoSphere {
         // Visual Map Glitch (if implemented)
         if (this.triggerTimelineGlitch) this.triggerTimelineGlitch(true);
 
-        // Simulation Logic
-        setTimeout(() => {
+        try {
+            const apiKey = this.getGeminiApiKey();
+            if (!apiKey) {
+                // Return if user canceled prompt
+                if (simWindow) simWindow.classList.remove('glitch-active');
+                responseBox.innerHTML = '<span class="typing">Simulation Aborted. API Key required.</span>';
+                return;
+            }
+
+            const responseText = await this.fetchGeminiResponse(prompt, apiKey);
+
+            // Simulation Logic
             if (simWindow) simWindow.classList.remove('glitch-active');
             if (hud) hud.classList.remove('hidden');
             if (responseBox.classList) responseBox.classList.add('glitch-text');
 
-            const scenario = this.getScenario(prompt);
+            const scenario = this.calculateMetrics(prompt, responseText);
 
             // Update HUD with calculated metrics if they exist in UI
             const divEl = document.getElementById('val-divergence');
@@ -416,20 +479,120 @@ class ChronoSphere {
             this.typeWriter(scenario.response, responseBox, () => {
                 if (responseBox.classList) responseBox.classList.remove('glitch-text');
             });
-        }, 2500);
+
+        } catch (error) {
+            console.error(error);
+            if (simWindow) simWindow.classList.remove('glitch-active');
+            responseBox.innerHTML = `<span style="color: red;">Chrono-Sync Error: ${error.message}</span>`;
+
+            // Allow user to reset key if it failed due to bad key
+            if (error.message.includes("400") || error.message.includes("API Key") || error.message.includes("key")) {
+                const btn = document.createElement('button');
+                btn.className = "btn-simulate-large";
+                btn.style.marginTop = "10px";
+                btn.textContent = "Re-enter API Key";
+                btn.onclick = () => {
+                    localStorage.removeItem('GEMINI_API_KEY');
+                    this.isSimulating = false;
+                    this.runAISimulation();
+                };
+                responseBox.appendChild(btn);
+            }
+        } finally {
+            this.isSimulating = false;
+        }
     }
 
-    getScenario(prompt) {
-        // Calculated Stats based on prompt length and seed
-        const charSum = prompt.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-        const calcDivergence = Math.min(95, Math.max(15, (charSum % 70) + 15));
-        const calcStability = Math.min(95, Math.max(10, 100 - calcDivergence + (charSum % 10)));
+    getGeminiApiKey() {
+        let key = localStorage.getItem('GEMINI_API_KEY');
+        if (!key) {
+            key = prompt("Chrono-Sync requires a Google Gemini API Key.\\n\\nYou can get a free one at https://aistudio.google.com/app/apikey\\n\\nPlease enter it below:");
+            if (key !== null && key.trim() !== "") {
+                localStorage.setItem('GEMINI_API_KEY', key.trim());
+            } else {
+                return null;
+            }
+        }
+        return localStorage.getItem('GEMINI_API_KEY');
+    }
 
+    async fetchGeminiResponse(promptText, apiKey) {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+
+        const systemInstruction = `You are Chrono-AI, a quantum history simulator. The user will give you a "What If" historical divergence query.
+You must respond using EXACTLY this HTML format:
+
+<b>Immediate Divergence:</b> [1-2 sentences on the immediate change]
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>[Category 1]:</b> [Effect]</li>
+    <li><b>[Category 2]:</b> [Effect]</li>
+    <li><b>[Category 3]:</b> [Effect]</li>
+</ul>
+
+<b>Final Outcome (2026):</b> [1-2 sentences on what the world looks like today]
+
+Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, and plausible.`;
+
+        const payload = {
+            contents: [{
+                parts: [{ text: promptText }]
+            }],
+            systemInstruction: {
+                parts: [{ text: systemInstruction }]
+            },
+            generationConfig: {
+                temperature: 0.7,
+                topP: 0.9,
+                topK: 40,
+                maxOutputTokens: 800,
+            },
+            safetySettings: [
+                {
+                    category: "HARM_CATEGORY_HARASSMENT",
+                    threshold: "BLOCK_NONE"
+                },
+                {
+                    category: "HARM_CATEGORY_HATE_SPEECH",
+                    threshold: "BLOCK_NONE"
+                },
+                {
+                    category: "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+                    threshold: "BLOCK_NONE"
+                },
+                {
+                    category: "HARM_CATEGORY_DANGEROUS_CONTENT",
+                    threshold: "BLOCK_NONE"
+                }
+            ]
+        };
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+            console.warn(`Gemini API returned status ${response.status}. Falling back to internal engine...`);
+            return this.getFallbackScenarioText(promptText);
+        }
+
+        const data = await response.json();
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
+            return data.candidates[0].content.parts[0].text;
+        } else {
+            console.warn("Invalid response format from Gemini. Falling back to internal engine...");
+            return this.getFallbackScenarioText(promptText);
+        }
+    }
+
+    getFallbackScenarioText(prompt) {
+        const p = prompt.toLowerCase();
         const scenarios = [
             {
                 keywords: ['alexandria'],
-                divergence: 82,
-                stability: 38,
                 response: `<b>Immediate Divergence:</b> Library of Alexandria preserved by rapid deployment of Roman naval guards.
                 
 <b>Secondary Ripple Effects:</b>
@@ -443,8 +606,6 @@ class ChronoSphere {
             },
             {
                 keywords: ['rome', 'roman'],
-                divergence: 68,
-                stability: 52,
                 response: `<b>Immediate Divergence:</b> Julius Caesar survives the Ides of March and implements the "Great Census."
 
 <b>Secondary Ripple Effects:</b>
@@ -458,8 +619,6 @@ class ChronoSphere {
             },
             {
                 keywords: ['napoleon', 'waterloo'],
-                divergence: 54,
-                stability: 65,
                 response: `<b>Immediate Divergence:</b> Napoleon executes a flanking maneuver at Waterloo, securing a decisive victory.
 
 <b>Secondary Ripple Effects:</b>
@@ -472,9 +631,7 @@ class ChronoSphere {
 <b>Final Outcome (2026):</b> A prosperous, unified global federation with its capital in Paris.`
             },
             {
-                keywords: ['india', 'independence', 'freedom', 'colonial'],
-                divergence: 58,
-                stability: 44,
+                keywords: ['india', 'independence', 'freedom', 'colonial', 'gandhi'],
                 response: `<b>Immediate Divergence:</b> The 1947 partition is avoided through a federalist compromise.
 
 <b>Secondary Ripple Effects:</b>
@@ -488,8 +645,6 @@ class ChronoSphere {
             },
             {
                 keywords: ['internet', 'computer', 'babbage', 'lovelace'],
-                divergence: 35,
-                stability: 88,
                 response: `<b>Immediate Divergence:</b> Ada Lovelace and Charles Babbage secure full funding for the Analytical Engine.
 
 <b>Secondary Ripple Effects:</b>
@@ -502,88 +657,56 @@ class ChronoSphere {
 <b>Final Outcome (2026):</b> A world of high-tech brass and steam, where cybernetics were perfected by the 1950s.`
             },
             {
-                keywords: ['dinosaurs', 'asteroid', 'extinction'],
-                divergence: 98,
-                stability: 12,
-                response: `<b>Immediate Divergence:</b> The Chicxulub asteroid narrowly misses Earth 66 million years ago.
-                
+                keywords: ['hitler', 'ww2', 'nazi'],
+                response: `<b>Immediate Divergence:</b> Without Hitler, the National Socialist German Workers' Party fails to gain significant traction, remaining a fringe extremist group.
+
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Evolution:</b> Non-avian dinosaurs continue to evolve, eventually developing high intelligence.</li>
-    <li><b>Humanity:</b> Mammals remain small, nocturnal creatures; humans never evolve.</li>
-    <li><b>Technology:</b> Advanced tools are crafted from bio-engineered materials rather than metals.</li>
+    <li><b>Political:</b> The Weimar Republic, while fragile, survives its economic crises through international coalitions.</li>
+    <li><b>Global Conflict:</b> A major, conventional European war likely occurs in the 1950s involving a resurgent, authoritarian Russia rather than Germany.</li>
+    <li><b>Technology:</b> Jet propulsion and rocketry development are delayed by two decades without wartime acceleration.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> The "Sauropod Coalition" spans Pan-Gaea, monitoring the solar system for rogue celestial bodies.`
-            },
-            {
-                keywords: ['moon landing', 'apollo'],
-                divergence: 25,
-                stability: 95,
-                response: `<b>Immediate Divergence:</b> The Apollo 11 mission establishes a permanent lunar base in 1969.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Space Race:</b> The Cold War shifts entirely to space colonization, avoiding proxy wars on Earth.</li>
-    <li><b>Technology:</b> Commercial nuclear fusion is perfected by 1985 to power off-world colonies.</li>
-    <li><b>Society:</b> A distinct "Lunar Culture" emerges, declaring independence in 2010.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> Earth is primarily a nature reserve; the majority of humanity resides in orbital rings and Martian cities.`
-            },
-            {
-                keywords: ['mona lisa', 'da vinci', 'painting'],
-                divergence: 42,
-                stability: 88,
-                response: `<b>Immediate Divergence:</b> Leonardo da Vinci abandons the Mona Lisa to focus on his "Great Flight Engine."
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Technology:</b> Functional human flight achieved in 1515; Renaissance aeronautics accelerate.</li>
-    <li><b>Art:</b> Abstract expressionism emerges 400 years early as the dominant style.</li>
-    <li><b>Cultural:</b> The Louvre remains a royal palace rather than a global museum.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> Personalized flight is universal; "Sky-Cities" float above the major continents.`
-            },
-            {
-                keywords: ['titanic', 'shipwreck', 'iceberg'],
-                divergence: 38,
-                stability: 92,
-                response: `<b>Immediate Divergence:</b> The Titanic successfully avoids the iceberg due to advanced binocular deployment.
-                
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Maritime Law:</b> Maritime safety regulations are delayed by 50 years.</li>
-    <li><b>Migration:</b> A new wave of industrial leaders arrives in NY, accelerating the US economic boom.</li>
-    <li><b>Media:</b> The concept of the "unsinkable" becomes a global cultural dogma.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The White Star Line is the world's largest luxury travel conglomerate.`
+<b>Final Outcome (2026):</b> A multi-polar Europe defined by strong national borders and slower technological integration, avoiding the trauma of the Holocaust.`
             }
         ];
 
         // Find match
         for (const s of scenarios) {
-            if (s.keywords.some(k => prompt.includes(k))) {
-                return s;
+            if (s.keywords.some(k => p.includes(k))) {
+                return s.response;
             }
         }
 
         // Dynamic Fallback
-        return {
-            divergence: calcDivergence,
-            stability: calcStability,
-            response: `<b>Immediate Divergence:</b> Neural node detected at prompt vertex: "${prompt}".
+        const charSum = p.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const calcDivergence = Math.min(95, Math.max(15, (charSum % 70) + 15));
+        const calcStability = Math.min(95, Math.max(10, 100 - calcDivergence + (charSum % 10)));
+
+        return `<b>Immediate Divergence:</b> Neural node detected at prompt vertex: "${prompt}".
 
 <b>Secondary Ripple Effects:</b>
 <ul>
     <li><b>Political:</b> Regional hierarchies shift by ${Math.floor(calcDivergence / 3)}% to accommodate new timeline.</li>
     <li><b>Cultural:</b> Socio-linguistic drift detected in the subsequent 4 decades.</li>
-    <li><b>Stablity:</b> ${calcStability > 60 ? 'Structural integrity maintained.' : 'Anomalous timeline variance detected.'}</li>
+    <li><b>Stability:</b> ${calcStability > 60 ? 'Structural integrity maintained.' : 'Anomalous timeline variance detected.'}</li>
 </ul>
+<b>Final Outcome (2026):</b> A timeline defined by ${calcDivergence > 50 ? 'radical sociopolitical realignment' : 'minor structural adjustments'}. Chrono-Sync stable.`;
+    }
 
-<b>Final Outcome (2026):</b> A timeline defined by ${calcDivergence > 50 ? 'radical sociopolitical realignment' : 'minor structural adjustments'}. Chrono-Sync stable.`
+    calculateMetrics(prompt, responseText) {
+        // Calculated Stats based on prompt length and seed
+        const charSum = prompt.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const calcDivergence = Math.min(95, Math.max(15, (charSum % 70) + 15));
+        const calcStability = Math.min(95, Math.max(10, 100 - calcDivergence + (charSum % 10)));
+
+        // Clean up response if it accidentally has markdown tags
+        let cleanResponse = responseText.replaceAll('\`\`\`html', '').replaceAll('\`\`\`', '').trim();
+
+        return {
+            divergence: calcDivergence,
+            stability: calcStability,
+            response: cleanResponse
         };
     }
 
@@ -600,7 +723,10 @@ class ChronoSphere {
     }
 
     typeWriter(text, element, callback) {
+        if (this.typeWriterInterval) clearInterval(this.typeWriterInterval);
+
         element.innerHTML = '';
+        let currentHTML = '';
         let i = 0;
 
         // Split text into tags and characters to handle HTML properly
@@ -608,19 +734,20 @@ class ChronoSphere {
         let partIndex = 0;
         let charIndex = 0;
 
-        const interval = setInterval(() => {
+        this.typeWriterInterval = setInterval(() => {
             if (partIndex >= parts.length) {
-                clearInterval(interval);
+                clearInterval(this.typeWriterInterval);
+                this.typeWriterInterval = null;
                 if (callback) callback();
                 return;
             }
 
             const currentPart = parts[partIndex];
             if (currentPart.startsWith('<')) {
-                element.innerHTML += currentPart;
+                currentHTML += currentPart;
                 partIndex++;
             } else {
-                element.innerHTML += currentPart.charAt(charIndex);
+                currentHTML += currentPart.charAt(charIndex);
                 charIndex++;
                 if (charIndex >= currentPart.length) {
                     charIndex = 0;
@@ -628,9 +755,11 @@ class ChronoSphere {
                 }
             }
 
+            element.innerHTML = currentHTML;
+
             // Scroll to bottom
-            const window = element.closest('.simulator-window');
-            if (window) window.scrollTop = window.scrollHeight;
+            const scrollContainer = element.closest('.simulator-body');
+            if (scrollContainer) scrollContainer.scrollTop = scrollContainer.scrollHeight;
 
         }, 15);
     }

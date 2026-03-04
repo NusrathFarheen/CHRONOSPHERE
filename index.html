@@ -95,7 +95,20 @@
                     <span id="display-era" class="era-tag">The Renaissance</span>
                 </div>
                 <div class="slider-wrapper">
-                    <input type="range" id="timeline-slider" min="1500" max="2025" value="1500" step="1">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                        <button id="autoplay-btn" class="play-btn-modern" title="Autoplay Timeline">
+                            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                <polygon points="8 5 19 12 8 19 8 5"></polygon>
+                            </svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" stroke="none"
+                                style="display: none;">
+                                <rect x="6" y="5" width="4" height="14"></rect>
+                                <rect x="14" y="5" width="4" height="14"></rect>
+                            </svg>
+                        </button>
+                        <input type="range" id="timeline-slider" min="1500" max="2025" value="1500" step="1"
+                            style="flex-grow: 1;">
+                    </div>
                     <div class="timeline-ticks">
                         <span>1500</span>
                         <span>1600</span>
