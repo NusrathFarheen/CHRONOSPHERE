@@ -590,108 +590,176 @@ Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, an
 
     getFallbackScenarioText(prompt) {
         const p = prompt.toLowerCase();
+
+        // Scenarios are ordered from most-specific (long phrases) to least-specific (short words).
+        // This prevents 'india' matching before 'east india company'.
         const scenarios = [
             {
-                keywords: ['alexandria'],
-                response: `<b>Immediate Divergence:</b> Library of Alexandria preserved by rapid deployment of Roman naval guards.
-                
+                keywords: ['east india company', 'british east india'],
+                response: `<b>Immediate Divergence:</b> Without the East India Company's charter in 1600, English mercantile capitalism finds no unified vessel to project power into Asia. Dutch and Portuguese trading houses dominate the routes to India and China for another two centuries.
+
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Technology:</b> Hero of Alexandria establishes the first steam-engine factory in 150 AD.</li>
-    <li><b>Culture:</b> Global literacy exceeds 95% by 600 AD; the "Dark Ages" never occurs.</li>
-    <li><b>Political:</b> The Ptolemaic-Roman Scientific Coalition becomes the first planetary government.</li>
+    <li><b>Geopolitical:</b> India remains a patchwork of powerful Mughal successors — the Maratha Empire, Hyderabad, and the Sikhs — never subjugated by a foreign commercial entity.</li>
+    <li><b>Economic:</b> The wealth extracted from Bengal during the Plassey era (~£1 trillion in today's terms) stays in South Asia, funding an indigenous Industrial Revolution by the 1780s.</li>
+    <li><b>Global:</b> Britain, never enriched by Indian wealth, develops more slowly. The American Revolution may never occur — there is no "taxation without representation" model to rebel against.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> Humanity is a Type II civilization, currently colonizing the Andromeda Galaxy.`
+<b>Final Outcome (2026):</b> A multi-polar world where the Indian subcontinent became the world's premier economic and technological power by 1900, with Bombay and Calcutta as the global centers of finance.`
             },
             {
-                keywords: ['rome', 'roman'],
-                response: `<b>Immediate Divergence:</b> Julius Caesar survives the Ides of March and implements the "Great Census."
+                keywords: ['mongol', 'genghis', 'temujin', 'kublai'],
+                response: `<b>Immediate Divergence:</b> Without Temujin's unification of the Mongol tribes, no single conquering force sweeps across Eurasia in the 13th century.
 
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Political:</b> Administrative automation preserves the Empire for 2,000 years.</li>
-    <li><b>Law:</b> Roman Civil Law remains the sole global legal framework.</li>
-    <li><b>Culture:</b> Latin stays the dominant global language; nation-states never form.</li>
+    <li><b>Islamic World:</b> The Abbasid Caliphate in Baghdad survives. The "Golden Age of Islam" — already producing algebra, medicine, and astronomy — continues uninterrupted for centuries.</li>
+    <li><b>China:</b> The Song Dynasty, never conquered, likely achieves an Industrial Revolution by the 14th century. Gunpowder, paper, and the compass are industrialized 400 years early.</li>
+    <li><b>Europe:</b> Never threatened by Mongol invasion, feudal Europe remains insular. The Renaissance likely never happens — no influx of Arabic knowledge through trade disruption.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> The Eternal Empire spans the globe, currently launching the first Martian colony.`
+<b>Final Outcome (2026):</b> A world where the Islamic Caliphate and Song China are the dominant superpowers, with Europe still largely agricultural and fragmented.`
+            },
+            {
+                keywords: ['ww3', 'world war 3', 'world war iii', 'third world war', 'nuclear war'],
+                response: `<b>Immediate Divergence:</b> The conditions that trigger a third global conflict — most likely a Taiwan Strait confrontation or a NATO-Russia escalation — fail to materialize due to last-minute diplomatic intervention.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Geopolitical:</b> The unresolved tensions that caused the near-miss fundamentally reshape global governance. A reformed UN Security Council with binding arbitration powers is established by 2028.</li>
+    <li><b>Technology:</b> Defense spending, freed from active-conflict burn rates, floods into renewable energy and AI research. Fusion power is achieved by 2035.</li>
+    <li><b>Social:</b> A global "relief generation" emerges — having faced the abyss of nuclear annihilation and stepped back, a new wave of international cooperation redefines the 21st century.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> Still on the knife's edge. The avoided war bought time, but the underlying fault lines — resource scarcity, AI-driven economic inequality, and competing ideologies — remain unresolved.`
+            },
+            {
+                keywords: ['gandhi', 'mahatma'],
+                response: `<b>Immediate Divergence:</b> Without Gandhi's philosophy of Ahimsa (non-violence), the Indian independence movement fractures into competing armed factions — socialist revolutionaries, Hindu nationalists, and regional separatists.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Independence:</b> A violent insurgency against British rule unfolds. Britain, weakened post-WW2, likely withdraws by 1950 but into chaos — not a unified nation.</li>
+    <li><b>Partition:</b> Without Gandhi's moral authority to moderate the Congress-League conflict, the 1947 partition is exponentially bloodier. Pakistan may fragment further, splitting into three states.</li>
+    <li><b>Global:</b> The blueprint of peaceful civil disobedience never reaches Martin Luther King Jr. The American civil rights movement takes a far more confrontational, potentially violent path.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> South Asia is fragmented into 6-7 smaller states, still negotiating borders. Non-violent civil resistance as a global political tool may never have been invented.`
+            },
+            {
+                keywords: ['cold war', 'soviet', 'ussr', 'communism'],
+                response: `<b>Immediate Divergence:</b> The ideological confrontation between the US and USSR de-escalates permanently following the Cuban Missile Crisis, with both powers agreeing to a binding mutual disarmament framework.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Space:</b> Without the "space race" as a propaganda battle, the Moon landing becomes a joint US-Soviet mission in 1971. Mars is colonized by 1995.</li>
+    <li><b>Vietnam:</b> Without Cold War proxy-war logic, US intervention collapses politically. Vietnam unifies peacefully under a socialist government in 1965.</li>
+    <li><b>Economy:</b> Trillions freed from arms spending flood into health, education, and infrastructure globally. Global extreme poverty is eradicated by 2000.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A cooperative world order where the US and Russia are the closest of allies, jointly administering the International Mars Authority.`
+            },
+            {
+                keywords: ['alexandria'],
+                response: `<b>Immediate Divergence:</b> The Library of Alexandria is preserved by a decisive Roman naval guard. Every scroll — Euclid's missing works, Hero's automata, Aristarchus's heliocentric model — survives.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Technology:</b> Hero of Alexandria's steam engine is industrialized by 200 AD. The Roman Empire begins its own Industrial Revolution.</li>
+    <li><b>Culture:</b> Global literacy exceeds 90% by 600 AD. The "Dark Ages" never occurs — classical knowledge is never lost.</li>
+    <li><b>Religion:</b> Early astronomy proving a Sun-centered galaxy prevents the geocentric dogma from taking hold. The Scientific Revolution happens 1,400 years early.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> Humanity is a Type II Kardashev civilization. We left Earth permanently in 1300 AD. The planet is now a nature reserve.`
+            },
+            {
+                keywords: ['rome', 'roman empire'],
+                response: `<b>Immediate Divergence:</b> Julius Caesar survives the Ides of March and implements sweeping constitutional reforms, transforming Rome into a stable constitutional monarchy.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Political:</b> Without the power vacuum of Caesar's murder, the long civil wars never happen. Rome's engineering and legal systems spread further and faster.</li>
+    <li><b>Religion:</b> Christianity remains a minor Jewish sect within a tolerant multicultural empire. Islam may never emerge as a political force.</li>
+    <li><b>Language:</b> Latin never fragments into French, Spanish, Italian, and Portuguese — there is one global Romance language.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> The Roman Empire, continuously reformed over 2,000 years, is the world's sole superpower — a constitutional monarchy of 4 billion citizens spanning four continents.`
             },
             {
                 keywords: ['napoleon', 'waterloo'],
-                response: `<b>Immediate Divergence:</b> Napoleon executes a flanking maneuver at Waterloo, securing a decisive victory.
+                response: `<b>Immediate Divergence:</b> Napoleon executes a decisive flanking maneuver at Waterloo, routing the Coalition forces and securing peace terms in Paris within six months.
 
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Political:</b> The "United States of Europe" is established 140 years early.</li>
-    <li><b>Language:</b> French becomes the primary commercial and diplomatic tongue.</li>
-    <li><b>Technology:</b> Metric system adopted globally by 1850; standardized engineering accelerates growth.</li>
+    <li><b>Political:</b> The "United States of Europe" — Napoleon's dream — forms under French hegemony by 1820, 130 years before the actual EU.</li>
+    <li><b>Language:</b> French becomes the global language of commerce, law, and science. English remains the language of a minor Atlantic island.</li>
+    <li><b>Technology:</b> The Metric system is adopted globally by 1830. Standardized engineering accelerates the Industrial Revolution by decades.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> A prosperous, unified global federation with its capital in Paris.`
-            },
-            {
-                keywords: ['india', 'independence', 'freedom', 'colonial', 'gandhi'],
-                response: `<b>Immediate Divergence:</b> The 1947 partition is avoided through a federalist compromise.
-
-<b>Secondary Ripple Effects:</b>
-<ul>
-    <li><b>Geopolitical:</b> The Indian Subcontinent remains a single, massive economic powerhouse.</li>
-    <li><b>Cold War:</b> India becomes the third superpower, leading the Non-Aligned Movement.</li>
-    <li><b>Technology:</b> Early focus on indigenous aerospace makes India the leader in moon-mining.</li>
-</ul>
-
-<b>Final Outcome (2026):</b> The "Bharatiya Global Bloc" holds the keys to the world's energy supply through thorium fusion.`
+<b>Final Outcome (2026):</b> A federal Europe of 500 million citizens, the world's sole superpower, with its capital in Paris and its currency the Franc.`
             },
             {
                 keywords: ['internet', 'computer', 'babbage', 'lovelace'],
-                response: `<b>Immediate Divergence:</b> Ada Lovelace and Charles Babbage secure full funding for the Analytical Engine.
+                response: `<b>Immediate Divergence:</b> Ada Lovelace and Charles Babbage secure Royal Society funding for the Analytical Engine in 1843. The first programmable computer is operational by 1855.
 
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Social:</b> Mechanical computation enters the Victorian home by 1880.</li>
-    <li><b>Communication:</b> A global telegraph-based "Steam Internet" forms in 1900.</li>
-    <li><b>War:</b> Data-driven diplomacy prevents the outbreak of World War I.</li>
+    <li><b>Social:</b> Mechanical computation enters Victorian factories and homes by 1880. The first "programmer" profession emerges in the 1870s, predominantly female.</li>
+    <li><b>Communication:</b> A global telegraph-and-punch-card network — a "Steam Internet" — forms by 1900.</li>
+    <li><b>War:</b> Data-driven logistics and code-breaking technology prevents both World Wars from reaching their catastrophic scales.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> A world of high-tech brass and steam, where cybernetics were perfected by the 1950s.`
+<b>Final Outcome (2026):</b> A world of high-tech brass and steam where biological computing was perfected by 1980. The cyberpunk aesthetic is reality, not fiction.`
             },
             {
-                keywords: ['hitler', 'ww2', 'nazi'],
-                response: `<b>Immediate Divergence:</b> Without Hitler, the National Socialist German Workers' Party fails to gain significant traction, remaining a fringe extremist group.
+                keywords: ['hitler', 'ww2', 'world war 2', 'world war ii', 'nazi', 'second world war'],
+                response: `<b>Immediate Divergence:</b> Without Hitler's rise, the NSDAP remains a fringe extremist party. The Weimar Republic, though fragile, survives through international economic reform.
 
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Political:</b> The Weimar Republic, while fragile, survives its economic crises through international coalitions.</li>
-    <li><b>Global Conflict:</b> A major, conventional European war likely occurs in the 1950s involving a resurgent, authoritarian Russia rather than Germany.</li>
-    <li><b>Technology:</b> Jet propulsion and rocketry development are delayed by two decades without wartime acceleration.</li>
+    <li><b>Political:</b> A conventional European war still likely occurs in the 1950s — but between a resurgent Russia and a coalition of democracies, not Nazi Germany.</li>
+    <li><b>Technology:</b> Without wartime acceleration, jet engines, rocketry, and nuclear fission are delayed by 20-30 years. The space age begins in the 1980s.</li>
+    <li><b>Humanity:</b> Six million Jewish lives are spared. The cultural, scientific, and artistic contributions of those who died in the Holocaust — and their descendants — reshape civilization.</li>
 </ul>
 
-<b>Final Outcome (2026):</b> A multi-polar Europe defined by strong national borders and slower technological integration, avoiding the trauma of the Holocaust.`
+<b>Final Outcome (2026):</b> A slower-developing but more humane world. Europe is a loose confederation of strong nation-states. Nuclear weapons may have never been invented.`
+            },
+            {
+                keywords: ['india', 'independence', 'partition', 'british india'],
+                response: `<b>Immediate Divergence:</b> Indian independence is achieved in 1930 through a successful Swaraj constitutional negotiation, 17 years early, avoiding the trauma of Partition.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Geopolitical:</b> A unified Indian subcontinent — Hindu, Muslim, and Sikh populations co-governing — becomes a superpower 30 years ahead of history's schedule.</li>
+    <li><b>Cold War:</b> India, never weakened by Partition's refugee crisis, takes decisive leadership of the Non-Aligned Movement. The Cold War ends a decade early.</li>
+    <li><b>Economy:</b> Without the trauma of 1947, South Asia's economic growth trajectory mirrors post-war Germany. GDP per capita rivals South Korea's by 1990.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A unified South Asia of 2 billion people is the world's largest economy. Delhi and Bombay are the financial and cultural capitals of the globe.`
             }
         ];
 
-        // Find match
+        // Find match (longer, more specific phrases checked first via array order)
         for (const s of scenarios) {
             if (s.keywords.some(k => p.includes(k))) {
                 return s.response;
             }
         }
 
-        // Dynamic Fallback
-        const charSum = p.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-        const calcDivergence = Math.min(95, Math.max(15, (charSum % 70) + 15));
-        const calcStability = Math.min(95, Math.max(10, 100 - calcDivergence + (charSum % 10)));
+        // Intelligent Generic Fallback — uses the actual prompt to feel responsive
+        const subject = prompt.replace(/what if/i, '').replace(/never (existed?|happened?|born?|found?|invented?)/i, '').trim();
+        const capSubject = subject.charAt(0).toUpperCase() + subject.slice(1);
 
-        return `<b>Immediate Divergence:</b> Neural node detected at prompt vertex: "${prompt}".
+        return `<b>Immediate Divergence:</b> The removal or alteration of <i>${capSubject}</i> creates a critical fork in the historical timeline.
 
 <b>Secondary Ripple Effects:</b>
 <ul>
-    <li><b>Political:</b> Regional hierarchies shift by ${Math.floor(calcDivergence / 3)}% to accommodate new timeline.</li>
-    <li><b>Cultural:</b> Socio-linguistic drift detected in the subsequent 4 decades.</li>
-    <li><b>Stability:</b> ${calcStability > 60 ? 'Structural integrity maintained.' : 'Anomalous timeline variance detected.'}</li>
+    <li><b>Political:</b> The power vacuum left by this absence is filled within one generation by a rival force — one previously suppressed or outcompeted by ${capSubject}.</li>
+    <li><b>Technological:</b> Any innovations directly attributed to or accelerated by ${capSubject} are delayed by 30–80 years. Adjacent fields that depended on them stagnate proportionally.</li>
+    <li><b>Cultural:</b> The philosophical and ideological legacy of ${capSubject} never enters the global consciousness. Successor movements develop along fundamentally different lines.</li>
 </ul>
-<b>Final Outcome (2026):</b> A timeline defined by ${calcDivergence > 50 ? 'radical sociopolitical realignment' : 'minor structural adjustments'}. Chrono-Sync stable.`;
+
+<b>Final Outcome (2026):</b> A world recognizable in geography but alien in culture and technology — a reminder that history is not inevitable, but a chain of fragile contingencies where the absence of any single link reshapes everything downstream.`;
     }
 
     calculateMetrics(prompt, responseText) {
