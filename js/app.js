@@ -478,6 +478,7 @@ class ChronoSphere {
 
             this.typeWriter(scenario.response, responseBox, () => {
                 if (responseBox.classList) responseBox.classList.remove('glitch-text');
+                this.isSimulating = false;
             });
 
         } catch (error) {
@@ -498,7 +499,6 @@ class ChronoSphere {
                 };
                 responseBox.appendChild(btn);
             }
-        } finally {
             this.isSimulating = false;
         }
     }
@@ -517,7 +517,7 @@ class ChronoSphere {
     }
 
     async fetchGeminiResponse(promptText, apiKey) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
         const systemInstruction = `You are Chrono-AI, a quantum history simulator. The user will give you a "What If" historical divergence query.
 You must respond using EXACTLY this HTML format:
@@ -811,11 +811,16 @@ Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, an
             }
 
             const currentPart = parts[partIndex];
-            if (currentPart.startsWith('<')) {
+            if (partIndex % 2 !== 0) {
+                // Odd indices contain the HTML tags matched by the split regex
                 currentHTML += currentPart;
                 partIndex++;
             } else {
-                currentHTML += currentPart.charAt(charIndex);
+                let char = currentPart.charAt(charIndex);
+                if (char === '<') char = '&lt;';
+                else if (char === '>') char = '&gt;';
+
+                currentHTML += char;
                 charIndex++;
                 if (charIndex >= currentPart.length) {
                     charIndex = 0;
