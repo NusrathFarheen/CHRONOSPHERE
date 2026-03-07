@@ -578,32 +578,90 @@ Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, an
 
         if (!response.ok) {
             const errData = await response.json();
-            console.error(`[Chrono-Sync API Error ${response.status}]:`, errData);
-            if (response.status === 429) {
-                throw new Error(`Rate limit reached. The free Gemini API allows ~15 requests/min. Please wait 60 seconds and try again.`);
-            }
-            if (response.status === 400) {
-                throw new Error(`Invalid API Key. Please click "Re-enter API Key" below and try a fresh key from https://aistudio.google.com/app/apikey`);
-            }
-            const errDetails = errData.error ? errData.error.message : response.statusText;
-            throw new Error(`API Error ${response.status}: ${errDetails}`);
+            console.warn(`[Chrono-Sync] API Error ${response.status}. Switching to internal engine...`, errData);
+            return this.getFallbackScenarioText(promptText);
         }
 
         const data = await response.json();
         if (data.candidates && data.candidates[0].content.parts[0].text) {
             return data.candidates[0].content.parts[0].text;
         } else {
-            console.warn("Invalid response format from Gemini.", data);
-            throw new Error("Invalid response format received from AI Simulator.");
+            console.warn("Invalid response format from Gemini. Switching to internal engine...", data);
+            return this.getFallbackScenarioText(promptText);
         }
     }
 
     getFallbackScenarioText(prompt) {
         const p = prompt.toLowerCase();
 
-        // Scenarios are ordered from most-specific (long phrases) to least-specific (short words).
-        // This prevents 'india' matching before 'east india company'.
         const scenarios = [
+
+            {
+                keywords: ['tesla', 'nikola', 'wireless', 'wardenclyffe'],
+                response: `<b>Immediate Divergence:</b> J.P. Morgan extends unlimited funding to Nikola Tesla's Wardenclyffe Tower in 1901. The global wireless electricity grid becomes operational by 1910.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Energy:</b> Free wireless electricity renders fossil fuel companies obsolete within 30 years. The industrial age never becomes the petroleum age.</li>
+    <li><b>Geopolitical:</b> Without oil as a strategic resource, the Middle East never becomes a flashpoint of global conflict. The 20th century's proxy wars never happen.</li>
+    <li><b>Technology:</b> With unlimited free energy, computation and communications accelerate 50 years faster. Computers and the internet emerge by 1940.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A post-scarcity world powered entirely by renewable wireless electricity. Tesla is remembered as the greatest human who ever lived — history's most vindicated genius.`
+            },
+            {
+                keywords: ['archduke', 'sarajevo', 'franz ferdinand', 'gavrilo', 'princip'],
+                response: `<b>Immediate Divergence:</b> The driver of Archduke Franz Ferdinand's motorcade does not take a wrong turn on June 28, 1914. Gavrilo Princip never gets a second shot. Franz Ferdinand survives.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>World War I:</b> Without the assassination, the chain reaction that triggers WWI fails. The Great War never ignites — 20 million lives are spared.</li>
+    <li><b>Geopolitical:</b> The Ottoman Empire never destabilizes. The Middle East is never carved up by the Sykes-Picot Agreement — no artificial borders, no century of conflict.</li>
+    <li><b>World War II:</b> Without the Treaty of Versailles, Germany is never humiliated. Hitler remains a failed artist. The Holocaust never happens.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A world with no World Wars, no Holocaust, no Cold War — all because of one driver who did not take a wrong turn in Sarajevo.`
+            },
+            {
+                keywords: ['byzantine', 'constantinople', 'ottoman'],
+                response: `<b>Immediate Divergence:</b> Constantinople holds against Mehmed II's siege in 1453. Greek fire technology is refined and defeats the Ottoman fleet. The Byzantine Empire survives.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Religion:</b> Eastern Orthodox Christianity dominates the Eastern Mediterranean. The Ottoman expansion into Europe never occurs.</li>
+    <li><b>Trade:</b> The Silk Road stays open under Byzantine protection. Columbus never needs to find an alternate sea route — the Age of Exploration is never triggered by an Ottoman blockade.</li>
+    <li><b>Science:</b> Byzantine Constantinople becomes an independent scientific powerhouse, pioneering modern astronomy and medicine 200 years ahead of schedule.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A surviving Byzantine Empire of 200 million people, one of the world's most culturally rich civilizations, its capital still the most magnificent city on Earth.`
+            },
+            {
+                keywords: ['plague', 'black death', 'bubonic', 'medieval'],
+                response: `<b>Immediate Divergence:</b> The Black Death never reaches Europe in 1347. A storm destroys the Genoese ships from Crimea before they reach Sicily. The pandemic stays confined to Central Asia.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Population:</b> Europe's 75 million citizens are never reduced by a third. The psychological civilization-shift around mass death never reshapes European culture.</li>
+    <li><b>Church:</b> The Catholic Church, never discredited by its failure to stop the plague, retains absolute authority. The Protestant Reformation likely never occurs.</li>
+    <li><b>Labor:</b> Without the labor shortage that caused feudalism to collapse, serfdom persists in Europe until the 1700s — delaying democracy by centuries.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A more populous but intellectually slower Europe — perhaps 2 billion people today — dominated by a unified Catholic civilization that never experienced the Renaissance as we know it.`
+            },
+            {
+                keywords: ['china', 'ming', 'zheng he', 'chinese'],
+                response: `<b>Immediate Divergence:</b> The Ming Dynasty does not reverse its maritime policy in 1424. Admiral Zheng He continues his voyages and China establishes permanent trade colonies across Africa and — eventually — the Americas.
+
+<b>Secondary Ripple Effects:</b>
+<ul>
+    <li><b>Americas:</b> Chinese settlers arrive in California decades before Columbus. The exchange of technology accelerates indigenous civilizations rather than destroying them.</li>
+    <li><b>Colonialism:</b> Europe never achieves global dominance. The Atlantic slave trade never occurs — China's trade model is mercantile, not extractive.</li>
+    <li><b>Language:</b> Mandarin becomes the global language of commerce. The world's most widely spoken languages in 2026 are Mandarin and Nahuatl.</li>
+</ul>
+
+<b>Final Outcome (2026):</b> A Sino-centric world order where Beijing is the supreme global capital and the Americas are a mosaic of thriving indigenous and Chinese-influenced civilizations.`
+            },
+
             {
                 keywords: ['east india company', 'british east india'],
                 response: `<b>Immediate Divergence:</b> Without the East India Company's charter in 1600, English mercantile capitalism finds no unified vessel to project power into Asia. Dutch and Portuguese trading houses dominate the routes to India and China for another two centuries.
