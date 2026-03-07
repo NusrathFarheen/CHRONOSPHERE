@@ -517,7 +517,7 @@ class ChronoSphere {
     }
 
     async fetchGeminiResponse(promptText, apiKey) {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
         const systemInstruction = `You are Chrono-AI, a quantum history simulator. The user will give you a "What If" historical divergence query.
 You must respond using EXACTLY this HTML format:
@@ -536,12 +536,14 @@ You must respond using EXACTLY this HTML format:
 Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, and plausible.`;
 
         const payload = {
-            contents: [{
-                parts: [{ text: promptText }]
-            }],
             systemInstruction: {
+                role: "system",
                 parts: [{ text: systemInstruction }]
             },
+            contents: [{
+                role: "user",
+                parts: [{ text: promptText }]
+            }],
             generationConfig: {
                 temperature: 0.7,
                 topP: 0.9,
