@@ -578,8 +578,14 @@ Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, an
 
         if (!response.ok) {
             const errData = await response.json();
-            const errDetails = errData.error ? errData.error.message : response.statusText;
             console.error(`[Chrono-Sync API Error ${response.status}]:`, errData);
+            if (response.status === 429) {
+                throw new Error(`Rate limit reached. The free Gemini API allows ~15 requests/min. Please wait 60 seconds and try again.`);
+            }
+            if (response.status === 400) {
+                throw new Error(`Invalid API Key. Please click "Re-enter API Key" below and try a fresh key from https://aistudio.google.com/app/apikey`);
+            }
+            const errDetails = errData.error ? errData.error.message : response.statusText;
             throw new Error(`API Error ${response.status}: ${errDetails}`);
         }
 
