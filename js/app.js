@@ -575,16 +575,18 @@ Do not include markdown codeblocks. Just raw HTML. Keep it concise, creative, an
         });
 
         if (!response.ok) {
-            console.warn(`Gemini API returned status ${response.status}. Falling back to internal engine...`);
-            return this.getFallbackScenarioText(promptText);
+            const errData = await response.json();
+            const errDetails = errData.error ? errData.error.message : response.statusText;
+            console.error(`[Chrono-Sync API Error ${response.status}]:`, errData);
+            throw new Error(`API Error ${response.status}: ${errDetails}`);
         }
 
         const data = await response.json();
         if (data.candidates && data.candidates[0].content.parts[0].text) {
             return data.candidates[0].content.parts[0].text;
         } else {
-            console.warn("Invalid response format from Gemini. Falling back to internal engine...");
-            return this.getFallbackScenarioText(promptText);
+            console.warn("Invalid response format from Gemini.", data);
+            throw new Error("Invalid response format received from AI Simulator.");
         }
     }
 
